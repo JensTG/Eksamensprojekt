@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Eksamensprojekt
 {
-    public partial class Form2 : Form
+    public partial class VælgEmne : Form
     {
-        public Form2()
+        public VælgEmne()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
