@@ -6,5 +6,15 @@ namespace Eksamensprojekt
         {
             InitializeComponent();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Brugernavn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
