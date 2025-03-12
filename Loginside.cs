@@ -1,8 +1,8 @@
 namespace Eksamensprojekt
 {
-    public partial class Form1 : Form
+    public partial class Loginside : Form
     {
-        public Form1()
+        public Loginside()
         {
             InitializeComponent();
         }

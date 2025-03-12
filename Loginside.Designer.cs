@@ -1,6 +1,6 @@
 ﻿namespace Eksamensprojekt
 {
-    partial class Form1
+    partial class Loginside
     {
         /// <summary>
         ///  Required designer variable.
@@ -88,7 +88,7 @@
             Adgangskode.TabIndex = 5;
             Adgangskode.Text = "Adgangskode:";
             // 
-            // Form1
+            // Loginside
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -99,8 +99,9 @@
             Controls.Add(textBox1);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
-            Name = "Form1";
+            Name = "Loginside";
             Text = "Form1";
+            Load += this.Loginside_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
