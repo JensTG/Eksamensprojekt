@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VælgEmne));
             listBox1 = new ListBox();
             pictureBox1 = new PictureBox();
             beskrivelselabel = new Label();
@@ -40,31 +39,30 @@
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(12, 18);
+            listBox1.Location = new Point(11, 14);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(339, 394);
+            listBox1.Size = new Size(343, 424);
             listBox1.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(376, 18);
+            pictureBox1.Location = new Point(376, 14);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(401, 170);
+            pictureBox1.Size = new Size(401, 241);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // beskrivelselabel
             // 
-            beskrivelselabel.AutoEllipsis = true;
-            beskrivelselabel.Location = new Point(376, 201);
+            beskrivelselabel.Location = new Point(376, 262);
             beskrivelselabel.Name = "beskrivelselabel";
-            beskrivelselabel.Size = new Size(401, 47);
+            beskrivelselabel.Size = new Size(401, 124);
             beskrivelselabel.TabIndex = 2;
-            beskrivelselabel.Text = resources.GetString("beskrivelselabel.Text");
+            beskrivelselabel.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e";
             // 
             // button1
             // 
-            button1.Location = new Point(376, 389);
+            button1.Location = new Point(376, 415);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 3;
