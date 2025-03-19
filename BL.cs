@@ -6,45 +6,67 @@ using System.Threading.Tasks;
 
 public abstract class Spørgsmål
 {
-    string beskrivelse = "";
-    Image eksempelbillede = null;
+    public string beskrivelse = "";
+    public Image eksempelbillede = null;
     
     // Fra fil
-    void IndlæsSpørgsmål(string fil)
+    public virtual void IndlæsSpørgsmål(string fil)
     {
         using (StreamReader sr = new StreamReader(fil))
         {
-            
+            beskrivelse = sr.ReadLine();
+            string billede_sti = sr.ReadLine();
+            eksempelbillede = Image.FromFile(billede_sti);
+            sr.Close();
         };
     }
 
     // Til fil
-    void GemSpørgsmål(string fil, string billede_fil)
+    public virtual void GemSpørgsmål(string fil, string billede_sti)
     {
         using (StreamWriter sw = new StreamWriter(fil))
         {
             sw.WriteLine(beskrivelse);
-            sw.WriteLine(billede_fil);
+            sw.WriteLine(billede_sti);
+            eksempelbillede.Save(billede_sti);
             sw.Close();
         };
     }
-
-    // Tag input fra eleven
-    public abstract void Svar();
 }
 
-file class MultipleChoice : Spørgsmål
+public class MultipleChoice : Spørgsmål
 {
-    
+    string[] mulige_svar;
+    int korrekt;
+    public int svar;
+
+    override public void IndlæsSpørgsmål(string fil)
+    {
+        base.IndlæsSpørgsmål(fil);
+        string[] data = beskrivelse.Split('#');
+        beskrivelse = data[0];
+        korrekt = int.Parse(data[1]);
+        mulige_svar = data[2..];
+    }
+
+    public override void GemSpørgsmål(string fil, string billede_sti)
+    {
+        beskrivelse += '#' + korrekt;
+        foreach (string mulighed in mulige_svar)
+            beskrivelse += '#' + mulighed;
+        base.GemSpørgsmål(fil, billede_sti);
+    }
 }
 
 file class ÅbentSvar : Spørgsmål
 {
-
+    public string svar = "";
 }
 
 public class Opgave
 {
+    List<Spørgsmål> spørgsmål = new List<Spørgsmål>();
+
     // Hvor mange Spørgsmål har eleven svaret rigtigt på?
     int AntalRigtige()
     {
