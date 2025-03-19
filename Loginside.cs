@@ -19,14 +19,19 @@ namespace Eksamensprojekt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int status = BL.ErBruger(textBox1.Text, textBox2.Text);
+            // int status = BL.ErBruger(textBox1.Text, textBox2.Text);
+            int status = 0;
             switch(status)
             {
+                case -1:
+                    
+                    return;
                 case 0:
+                    Form form = new Form();
+                    form.Show();
+
                     return;
                 case 1:
-                    return;
-                case 2:
                     return;
 
             }
