@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 file abstract class Spørgsmål
 {
     string beskrivelse = "";
-    Image eksempelbillede;
+    Image eksempelbillede = null;
     
     // Indlæs spørgsmål fra filstring
     Spørgsmål()

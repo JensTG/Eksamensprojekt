@@ -101,7 +101,6 @@
             Controls.Add(button1);
             Name = "Loginside";
             Text = "Form1";
-            Load += this.Loginside_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
