@@ -4,27 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-file abstract class Spørgsmål
+public abstract class Spørgsmål
 {
     string beskrivelse = "";
     Image eksempelbillede = null;
     
-    // Indlæs spørgsmål fra filstring
-    Spørgsmål()
+    // Fra fil
+    void IndlæsSpørgsmål(string fil)
     {
-        eksempelbillede = Image.FromFile();
+        using (StreamReader sr = new StreamReader(fil))
+        {
+            
+        };
+    }
+
+    // Til fil
+    void GemSpørgsmål(string fil, string billede_fil)
+    {
+        using (StreamWriter sw = new StreamWriter(fil))
+        {
+            sw.WriteLine(beskrivelse);
+            sw.WriteLine(billede_fil);
+            sw.Close();
+        };
     }
 
     // Tag input fra eleven
-    void Svar()
-    {
-
-    }
+    public abstract void Svar();
 }
 
 file class MultipleChoice : Spørgsmål
 {
-
+    
 }
 
 file class ÅbentSvar : Spørgsmål
@@ -51,5 +62,10 @@ namespace Eksamensprojekt
 {
     internal class BL
     {
+        // -1: Ikke bruger, 0: Elev, 1: Lærer
+        int ErBruger(string brugernavn, string adgangskode)
+        {
+
+        }
     }
 }
