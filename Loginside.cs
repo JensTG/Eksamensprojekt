@@ -24,14 +24,16 @@ namespace Eksamensprojekt
             switch(status)
             {
                 case -1:
-                    
+                    MessageBox.Show("Brugernavn eller adgangskode er forkert");
                     return;
                 case 0:
-                    Form form = new Form();
-                    form.Show();
-
+                    VælgEmne ve = new VælgEmne();
+                    ve.ShowDialog();
                     return;
+
                 case 1:
+                    LærerSide ls = new LærerSide();
+                    ls.ShowDialog();
                     return;
 
             }
