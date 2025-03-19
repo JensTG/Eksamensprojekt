@@ -34,14 +34,15 @@
             textBox2 = new TextBox();
             Brugernavn = new Label();
             Adgangskode = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(362, 396);
+            button1.Location = new Point(347, 367);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(125, 29);
             button1.TabIndex = 0;
             button1.Text = "Log in";
             button1.UseVisualStyleBackColor = true;
@@ -58,14 +59,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(347, 302);
+            textBox1.Location = new Point(347, 283);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(125, 27);
             textBox1.TabIndex = 2;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(347, 346);
+            textBox2.Location = new Point(347, 327);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(125, 27);
             textBox2.TabIndex = 3;
@@ -73,7 +74,7 @@
             // Brugernavn
             // 
             Brugernavn.AutoSize = true;
-            Brugernavn.Location = new Point(240, 305);
+            Brugernavn.Location = new Point(240, 286);
             Brugernavn.Name = "Brugernavn";
             Brugernavn.Size = new Size(87, 20);
             Brugernavn.TabIndex = 4;
@@ -83,17 +84,28 @@
             // Adgangskode
             // 
             Adgangskode.AutoSize = true;
-            Adgangskode.Location = new Point(240, 349);
+            Adgangskode.Location = new Point(240, 330);
             Adgangskode.Name = "Adgangskode";
             Adgangskode.Size = new Size(104, 20);
             Adgangskode.TabIndex = 5;
             Adgangskode.Text = "Adgangskode:";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(347, 402);
+            button2.Name = "button2";
+            button2.Size = new Size(125, 29);
+            button2.TabIndex = 6;
+            button2.Text = "Opret bruger";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Loginside
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
             Controls.Add(Adgangskode);
             Controls.Add(Brugernavn);
             Controls.Add(textBox2);
@@ -115,5 +127,6 @@
         private TextBox textBox2;
         private Label Brugernavn;
         private Label Adgangskode;
+        private Button button2;
     }
 }

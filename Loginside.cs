@@ -19,9 +19,9 @@ namespace Eksamensprojekt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // int status = BL.ErBruger(textBox1.Text, textBox2.Text);
-            int status = 0;
-            switch(status)
+            int status = BL.ErBruger(textBox1.Text, textBox2.Text);
+           
+            switch (status)
             {
                 case -1:
                     MessageBox.Show("Brugernavn eller adgangskode er forkert");
@@ -38,6 +38,16 @@ namespace Eksamensprojekt
 
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (BL.ErBruger(textBox1.Text, textBox2.Text)==-1)
+            {
+                BL.OpretBruger(textBox1.Text, textBox2.Text);
+                MessageBox.Show("Brugeren er nu oprettet");
+            }
+            MessageBox.Show("Brugeren eksisterer allerede");
         }
     }
 }
