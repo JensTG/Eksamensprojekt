@@ -16,5 +16,21 @@ namespace Eksamensprojekt
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int status = BL.ErBruger(textBox1.Text, textBox2.Text);
+            switch(status)
+            {
+                case 0:
+                    return;
+                case 1:
+                    return;
+                case 2:
+                    return;
+
+            }
+
+        }
     }
 }
