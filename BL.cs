@@ -87,7 +87,8 @@ namespace Eksamensprojekt
         // -1: Ikke bruger, 0: Elev, 1: Lærer
         int ErBruger(string brugernavn, string adgangskode)
         {
-           
+            int bruger = DAL.SøgBruger(brugernavn, adgangskode);
+
         }
     }
 }
