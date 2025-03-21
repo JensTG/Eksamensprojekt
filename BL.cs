@@ -83,14 +83,20 @@ public class Opgave
 
 namespace Eksamensprojekt
 {
+    
     internal static class BL
     {
-        static List<>
+        // Rækkefølge på array: brugernavn, adgangskode, rang
+        public static List<string[]> brugere = new List<string[]>();
+
         // -1: Ikke bruger, 0: Elev, 1: Lærer
         public static int ErBruger(string brugernavn, string adgangskode)
         {
-            
-            return bruger;
+            for(int i = 0;i<brugere.Count;i++)
+            {
+
+            }
+            return 0;
         }
     }
 }
