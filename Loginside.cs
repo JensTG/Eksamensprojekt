@@ -27,13 +27,11 @@ namespace Eksamensprojekt
                     MessageBox.Show("Brugernavn eller adgangskode er forkert");
                     return;
                 case 0:
-                    VælgEmne ve = new VælgEmne();
-                    ve.ShowDialog();
+                    Program.hoved_form.ChangeChild(new VælgEmne());
                     return;
 
                 case 1:
-                    LærerSide ls = new LærerSide();
-                    ls.ShowDialog();
+                    Program.hoved_form.ChangeChild(new LærerSide());
                     return;
 
             }
@@ -44,7 +42,7 @@ namespace Eksamensprojekt
         {
             if (BL.ErBruger(textBox1.Text, textBox2.Text)==-1)
             {
-                BL.OpretBruger(textBox1.Text, textBox2.Text);
+                //BL.OpretBruger(textBox1.Text, textBox2.Text);
                 MessageBox.Show("Brugeren er nu oprettet");
             }
             MessageBox.Show("Brugeren eksisterer allerede");
