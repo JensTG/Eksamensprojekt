@@ -105,9 +105,9 @@ namespace Eksamensprojekt
         }
         public static bool OpretBruger(string brugernavn, string adgangskode)
         {
+            //Tjekker om en bruger med samme brugernavn findes
             for (int i = 0; i < brugere.Count; i++)
-            {
-                //Tjekker om en bruger med samme brugernavn findes
+            {   
                 if (brugere[i][0] == brugernavn)
                 {
                     return true;            
