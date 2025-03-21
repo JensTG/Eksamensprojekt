@@ -102,7 +102,6 @@
             Controls.Add(listBox1);
             Name = "LærerSide";
             Text = "Form1";
-            Load += this.LærerSide_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
