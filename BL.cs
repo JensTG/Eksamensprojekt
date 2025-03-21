@@ -83,12 +83,14 @@ public class Opgave
 
 namespace Eksamensprojekt
 {
-    internal class BL
+    internal static class BL
     {
+        static List<>
         // -1: Ikke bruger, 0: Elev, 1: Lærer
-        public int ErBruger(string brugernavn, string adgangskode)
+        public static int ErBruger(string brugernavn, string adgangskode)
         {
-            return 0;
+            
+            return bruger;
         }
     }
 }

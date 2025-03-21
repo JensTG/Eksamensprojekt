@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 internal class DAL
 {
-    public static int SøgBruger(string brugernavn,string adgangskode)
-    {
-
-    }
+    
+   
 }
