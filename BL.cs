@@ -107,12 +107,16 @@ namespace Eksamensprojekt
         {
             for (int i = 0; i < brugere.Count; i++)
             {
+                //Tjekker om en bruger med samme brugernavn findes
                 if (brugere[i][0] == brugernavn)
                 {
-                   
+                    return true;            
                 }
             }
+            string[] bruger = { brugernavn, adgangskode, "elev" };
+            brugere.Add(bruger);
             return false;
+
         }
     }
 }

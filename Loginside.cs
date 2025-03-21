@@ -45,7 +45,7 @@ namespace Eksamensprojekt
             bool oprettet = BL.OpretBruger(textBox1.Text, textBox2.Text);
             
             
-            if (oprettet == false)
+            if (oprettet == true)
             {
                 MessageBox.Show("Brugeren eksisterer allerede");
             }
