@@ -53,7 +53,7 @@
             label1.Size = new Size(150, 20);
             label1.TabIndex = 1;
             label1.Text = "Eksisterende opgaver";
-            label1.Click += this.label1_Click;
+            
             // 
             // button1
             // 
@@ -102,7 +102,6 @@
             Controls.Add(listBox1);
             Name = "LærerSide";
             Text = "Form1";
-            Load += this.LærerSide_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
