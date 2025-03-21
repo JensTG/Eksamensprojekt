@@ -42,12 +42,14 @@ namespace Eksamensprojekt
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (BL.ErBruger(textBox1.Text, textBox2.Text)==-1)
+            bool oprettet = BL.OpretBruger(textBox1.Text, textBox2.Text);
+            
+            
+            if (oprettet == false)
             {
-                BL.OpretBruger(textBox1.Text, textBox2.Text);
-                MessageBox.Show("Brugeren er nu oprettet");
+                MessageBox.Show("Brugeren eksisterer allerede");
             }
-            MessageBox.Show("Brugeren eksisterer allerede");
+            MessageBox.Show("Brugeren er nu oprettet");
         }
     }
 }

@@ -83,7 +83,7 @@ public class Opgave
 
 namespace Eksamensprojekt
 {
-    
+
     internal static class BL
     {
         // Rækkefølge på array: brugernavn, adgangskode, rang
@@ -92,11 +92,27 @@ namespace Eksamensprojekt
         // -1: Ikke bruger, 0: Elev, 1: Lærer
         public static int ErBruger(string brugernavn, string adgangskode)
         {
-            for(int i = 0;i<brugere.Count;i++)
+            for (int i = 0; i < brugere.Count; i++)
             {
-
+                if (brugere[i][0] == brugernavn && brugere[i][1] == adgangskode)
+                {
+                    if (brugere[i][2] == "lærer")
+                        return 1;
+                    return 0;
+                }
             }
-            return 0;
+            return -1;
+        }
+        public static bool OpretBruger(string brugernavn, string adgangskode)
+        {
+            for (int i = 0; i < brugere.Count; i++)
+            {
+                if (brugere[i][0] == brugernavn)
+                {
+                   
+                }
+            }
+            return false;
         }
     }
 }
