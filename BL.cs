@@ -83,9 +83,6 @@ namespace Eksamensprojekt
         }
     }
 
-namespace Eksamensprojekt
-{
-
     internal static class BL
     {
         // Rækkefølge på array: brugernavn, adgangskode, rang
@@ -118,7 +115,6 @@ namespace Eksamensprojekt
             string[] bruger = { brugernavn, adgangskode, "elev" };
             brugere.Add(bruger);
             return false;
-
         }
     }
 }
