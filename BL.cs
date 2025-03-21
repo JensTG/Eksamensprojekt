@@ -66,17 +66,18 @@ file class ÅbentSvar : Spørgsmål
 public class Opgave
 {
     List<Spørgsmål> spørgsmål = new List<Spørgsmål>();
+    int index = 0;
 
     // Hvor mange Spørgsmål har eleven svaret rigtigt på?
     int AntalRigtige()
     {
-
+        return 0;
     }
 
     // Returnerer som decimaltal mellem 0 og 1
     float AndelRigtige()
     {
-
+        return 0;
     }
 }
 
@@ -85,10 +86,9 @@ namespace Eksamensprojekt
     internal class BL
     {
         // -1: Ikke bruger, 0: Elev, 1: Lærer
-        int ErBruger(string brugernavn, string adgangskode)
+        public int ErBruger(string brugernavn, string adgangskode)
         {
-            int bruger = DAL.SøgBruger(brugernavn, adgangskode);
-
+            return 0;
         }
     }
 }
