@@ -28,22 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            OpgaveBilled = new PictureBox();
             OpgaveTekst = new Label();
-            Svarknap1 = new Button();
-            Svarknap2 = new Button();
-            Svarknap3 = new Button();
-            Svarknap4 = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SvarknapA = new Button();
+            SvarknapB = new Button();
+            SvarknapC = new Button();
+            SvarknapD = new Button();
+            button1 = new Button();
+            NæsteOpgaveKnap = new Button();
+            ForigeOpgaveKnap = new Button();
+            ((System.ComponentModel.ISupportInitialize)OpgaveBilled).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // OpgaveBilled
             // 
-            pictureBox1.Location = new Point(26, 28);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(749, 207);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            OpgaveBilled.Location = new Point(26, 28);
+            OpgaveBilled.Name = "OpgaveBilled";
+            OpgaveBilled.Size = new Size(749, 207);
+            OpgaveBilled.TabIndex = 0;
+            OpgaveBilled.TabStop = false;
             // 
             // OpgaveTekst
             // 
@@ -53,66 +56,99 @@
             OpgaveTekst.TabIndex = 1;
             OpgaveTekst.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e";
             // 
-            // Svarknap1
+            // SvarknapA
             // 
-            Svarknap1.Location = new Point(142, 315);
-            Svarknap1.Name = "Svarknap1";
-            Svarknap1.Size = new Size(189, 41);
-            Svarknap1.TabIndex = 2;
-            Svarknap1.Text = "A";
-            Svarknap1.UseVisualStyleBackColor = true;
+            SvarknapA.Location = new Point(142, 315);
+            SvarknapA.Name = "SvarknapA";
+            SvarknapA.Size = new Size(189, 41);
+            SvarknapA.TabIndex = 2;
+            SvarknapA.Text = "A";
+            SvarknapA.UseVisualStyleBackColor = true;
             // 
-            // Svarknap2
+            // SvarknapB
             // 
-            Svarknap2.Location = new Point(467, 315);
-            Svarknap2.Name = "Svarknap2";
-            Svarknap2.Size = new Size(189, 41);
-            Svarknap2.TabIndex = 3;
-            Svarknap2.Text = "B";
-            Svarknap2.UseVisualStyleBackColor = true;
+            SvarknapB.Location = new Point(467, 315);
+            SvarknapB.Name = "SvarknapB";
+            SvarknapB.Size = new Size(189, 41);
+            SvarknapB.TabIndex = 3;
+            SvarknapB.Text = "B";
+            SvarknapB.UseVisualStyleBackColor = true;
             // 
-            // Svarknap3
+            // SvarknapC
             // 
-            Svarknap3.Location = new Point(142, 382);
-            Svarknap3.Name = "Svarknap3";
-            Svarknap3.Size = new Size(189, 41);
-            Svarknap3.TabIndex = 4;
-            Svarknap3.Text = "C";
-            Svarknap3.UseVisualStyleBackColor = true;
+            SvarknapC.Location = new Point(142, 382);
+            SvarknapC.Name = "SvarknapC";
+            SvarknapC.Size = new Size(189, 41);
+            SvarknapC.TabIndex = 4;
+            SvarknapC.Text = "C";
+            SvarknapC.UseVisualStyleBackColor = true;
             // 
-            // Svarknap4
+            // SvarknapD
             // 
-            Svarknap4.Location = new Point(467, 382);
-            Svarknap4.Name = "Svarknap4";
-            Svarknap4.Size = new Size(189, 41);
-            Svarknap4.TabIndex = 5;
-            Svarknap4.Text = "D";
-            Svarknap4.UseVisualStyleBackColor = true;
+            SvarknapD.Location = new Point(467, 382);
+            SvarknapD.Name = "SvarknapD";
+            SvarknapD.Size = new Size(189, 41);
+            SvarknapD.TabIndex = 5;
+            SvarknapD.Text = "D";
+            SvarknapD.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(26, 324);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 6;
+            button1.Text = "Tilbage";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // NæsteOpgaveKnap
+            // 
+            NæsteOpgaveKnap.Location = new Point(687, 324);
+            NæsteOpgaveKnap.Name = "NæsteOpgaveKnap";
+            NæsteOpgaveKnap.Size = new Size(75, 23);
+            NæsteOpgaveKnap.TabIndex = 7;
+            NæsteOpgaveKnap.Text = "Næste Opgave";
+            NæsteOpgaveKnap.UseVisualStyleBackColor = true;
+            // 
+            // ForigeOpgaveKnap
+            // 
+            ForigeOpgaveKnap.Location = new Point(26, 391);
+            ForigeOpgaveKnap.Name = "ForigeOpgaveKnap";
+            ForigeOpgaveKnap.Size = new Size(75, 23);
+            ForigeOpgaveKnap.TabIndex = 8;
+            ForigeOpgaveKnap.Text = "Forige Opgave";
+            ForigeOpgaveKnap.UseVisualStyleBackColor = true;
             // 
             // OpgaveSide
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(Svarknap4);
-            Controls.Add(Svarknap3);
-            Controls.Add(Svarknap2);
-            Controls.Add(Svarknap1);
+            Controls.Add(ForigeOpgaveKnap);
+            Controls.Add(NæsteOpgaveKnap);
+            Controls.Add(button1);
+            Controls.Add(SvarknapD);
+            Controls.Add(SvarknapC);
+            Controls.Add(SvarknapB);
+            Controls.Add(SvarknapA);
             Controls.Add(OpgaveTekst);
-            Controls.Add(pictureBox1);
+            Controls.Add(OpgaveBilled);
             Name = "OpgaveSide";
             Text = "OpgaveSide";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)OpgaveBilled).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox OpgaveBilled;
         private Label OpgaveTekst;
-        private Button Svarknap1;
-        private Button Svarknap2;
-        private Button Svarknap3;
-        private Button Svarknap4;
+        private Button SvarknapA;
+        private Button SvarknapB;
+        private Button SvarknapC;
+        private Button SvarknapD;
+        private Button button1;
+        private Button NæsteOpgaveKnap;
+        private Button ForigeOpgaveKnap;
     }
 }

@@ -31,7 +31,7 @@
             listBox1 = new ListBox();
             pictureBox1 = new PictureBox();
             beskrivelselabel = new Label();
-            button1 = new Button();
+            VidereKnap = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -60,22 +60,22 @@
             beskrivelselabel.TabIndex = 2;
             beskrivelselabel.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e";
             // 
-            // button1
+            // VidereKnap
             // 
-            button1.Location = new Point(376, 415);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 3;
-            button1.Text = "Videre";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            VidereKnap.Location = new Point(376, 415);
+            VidereKnap.Name = "VidereKnap";
+            VidereKnap.Size = new Size(75, 23);
+            VidereKnap.TabIndex = 3;
+            VidereKnap.Text = "Videre";
+            VidereKnap.UseVisualStyleBackColor = true;
+            VidereKnap.Click += button1_Click;
             // 
             // VælgEmne
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
+            Controls.Add(VidereKnap);
             Controls.Add(beskrivelselabel);
             Controls.Add(pictureBox1);
             Controls.Add(listBox1);
@@ -90,6 +90,6 @@
         private ListBox listBox1;
         private PictureBox pictureBox1;
         private Label beskrivelselabel;
-        private Button button1;
+        private Button VidereKnap;
     }
 }

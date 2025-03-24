@@ -28,55 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            LogIndKnap = new Button();
             pictureBox1 = new PictureBox();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             Brugernavn = new Label();
             Adgangskode = new Label();
-            button2 = new Button();
+            OpretBrugerKnap = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // LogIndKnap
             // 
-            button1.Location = new Point(347, 367);
-            button1.Name = "button1";
-            button1.Size = new Size(125, 29);
-            button1.TabIndex = 0;
-            button1.Text = "Log in";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            LogIndKnap.Location = new Point(304, 275);
+            LogIndKnap.Margin = new Padding(3, 2, 3, 2);
+            LogIndKnap.Name = "LogIndKnap";
+            LogIndKnap.Size = new Size(109, 22);
+            LogIndKnap.TabIndex = 0;
+            LogIndKnap.Text = "Log in";
+            LogIndKnap.UseVisualStyleBackColor = true;
+            LogIndKnap.Click += button1_Click;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(170, 34);
+            pictureBox1.Location = new Point(149, 26);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(478, 236);
+            pictureBox1.Size = new Size(418, 177);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(347, 283);
+            textBox1.Location = new Point(304, 212);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
+            textBox1.Size = new Size(110, 23);
             textBox1.TabIndex = 2;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(347, 327);
+            textBox2.Location = new Point(304, 245);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
+            textBox2.Size = new Size(110, 23);
             textBox2.TabIndex = 3;
             // 
             // Brugernavn
             // 
             Brugernavn.AutoSize = true;
-            Brugernavn.Location = new Point(240, 286);
+            Brugernavn.Location = new Point(210, 214);
             Brugernavn.Name = "Brugernavn";
-            Brugernavn.Size = new Size(87, 20);
+            Brugernavn.Size = new Size(71, 15);
             Brugernavn.TabIndex = 4;
             Brugernavn.Text = "Brugernavn:";
             Brugernavn.Click += Brugernavn_Click;
@@ -84,34 +88,36 @@
             // Adgangskode
             // 
             Adgangskode.AutoSize = true;
-            Adgangskode.Location = new Point(240, 330);
+            Adgangskode.Location = new Point(210, 248);
             Adgangskode.Name = "Adgangskode";
-            Adgangskode.Size = new Size(104, 20);
+            Adgangskode.Size = new Size(83, 15);
             Adgangskode.TabIndex = 5;
             Adgangskode.Text = "Adgangskode:";
             // 
-            // button2
+            // OpretBrugerKnap
             // 
-            button2.Location = new Point(347, 402);
-            button2.Name = "button2";
-            button2.Size = new Size(125, 29);
-            button2.TabIndex = 6;
-            button2.Text = "Opret bruger";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            OpretBrugerKnap.Location = new Point(304, 302);
+            OpretBrugerKnap.Margin = new Padding(3, 2, 3, 2);
+            OpretBrugerKnap.Name = "OpretBrugerKnap";
+            OpretBrugerKnap.Size = new Size(109, 22);
+            OpretBrugerKnap.TabIndex = 6;
+            OpretBrugerKnap.Text = "Opret bruger";
+            OpretBrugerKnap.UseVisualStyleBackColor = true;
+            OpretBrugerKnap.Click += button2_Click;
             // 
             // Loginside
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(button2);
+            ClientSize = new Size(700, 338);
+            Controls.Add(OpretBrugerKnap);
             Controls.Add(Adgangskode);
             Controls.Add(Brugernavn);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(pictureBox1);
-            Controls.Add(button1);
+            Controls.Add(LogIndKnap);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Loginside";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -121,12 +127,12 @@
 
         #endregion
 
-        private Button button1;
+        private Button LogIndKnap;
         private PictureBox pictureBox1;
         private TextBox textBox1;
         private TextBox textBox2;
         private Label Brugernavn;
         private Label Adgangskode;
-        private Button button2;
+        private Button OpretBrugerKnap;
     }
 }
