@@ -53,6 +53,7 @@
             Tilbage.TabIndex = 1;
             Tilbage.Text = "Tilbage";
             Tilbage.UseVisualStyleBackColor = true;
+            Tilbage.Click += Tilbage_Click;
             // 
             // Let
             // 
@@ -62,6 +63,7 @@
             Let.TabIndex = 2;
             Let.Text = "Let";
             Let.UseVisualStyleBackColor = true;
+            Let.Click += Let_Click;
             // 
             // Mellem
             // 
@@ -71,6 +73,7 @@
             Mellem.TabIndex = 3;
             Mellem.Text = "Mellem";
             Mellem.UseVisualStyleBackColor = true;
+            Mellem.Click += Mellem_Click;
             // 
             // Svær
             // 
@@ -80,6 +83,7 @@
             Svær.TabIndex = 4;
             Svær.Text = "Svær";
             Svær.UseVisualStyleBackColor = true;
+            Svær.Click += Svær_Click;
             // 
             // label1
             // 

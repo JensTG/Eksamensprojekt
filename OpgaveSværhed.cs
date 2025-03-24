@@ -21,5 +21,25 @@ namespace Eksamensprojekt
         {
 
         }
+
+        private void Svær_Click(object sender, EventArgs e)
+        {
+            Program.hoved_form.ChangeChild(new OpgaveSide());
+        }
+
+        private void Mellem_Click(object sender, EventArgs e)
+        {
+            Program.hoved_form.ChangeChild(new OpgaveSide());
+        }
+
+        private void Let_Click(object sender, EventArgs e)
+        {
+            Program.hoved_form.ChangeChild(new OpgaveSide());
+        }
+
+        private void Tilbage_Click(object sender, EventArgs e)
+        {
+            Program.hoved_form.ChangeChild(new VælgEmne());
+        }
     }
 }
