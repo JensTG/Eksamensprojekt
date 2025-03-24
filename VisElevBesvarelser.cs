@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Eksamensprojekt
 {
-    public partial class VælgEmne : Form
+    public partial class VisElevBesvarelser : Form
     {
-        public VælgEmne()
+        public VisElevBesvarelser()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Program.hoved_form.ChangeChild(new OpgaveSværhed());
+
         }
     }
 }

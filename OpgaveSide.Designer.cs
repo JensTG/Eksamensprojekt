@@ -50,9 +50,9 @@
             // 
             // OpgaveTekst
             // 
-            OpgaveTekst.Location = new Point(26, 238);
+            OpgaveTekst.Location = new Point(30, 317);
             OpgaveTekst.Name = "OpgaveTekst";
-            OpgaveTekst.Size = new Size(749, 74);
+            OpgaveTekst.Size = new Size(856, 99);
             OpgaveTekst.TabIndex = 1;
             OpgaveTekst.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e";
             // 
@@ -119,9 +119,19 @@
             ForigeOpgaveKnap.Text = "Forige Opgave";
             ForigeOpgaveKnap.UseVisualStyleBackColor = true;
             // 
+            // SvarBox
+            // 
+            SvarBox.Cursor = Cursors.SizeNS;
+            SvarBox.Location = new Point(70, 373);
+            SvarBox.Name = "SvarBox";
+            SvarBox.Size = new Size(792, 191);
+            SvarBox.TabIndex = 6;
+            SvarBox.Text = "";
+            SvarBox.TextChanged += SvarBox_TextChanged;
+            // 
             // OpgaveSide
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(ForigeOpgaveKnap);
@@ -150,5 +160,6 @@
         private Button button1;
         private Button NæsteOpgaveKnap;
         private Button ForigeOpgaveKnap;
+        private RichTextBox SvarBox;
     }
 }

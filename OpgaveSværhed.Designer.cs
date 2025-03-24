@@ -48,43 +48,43 @@
             // 
             // TilbageKnap
             // 
-            TilbageKnap.Location = new Point(36, 282);
-            TilbageKnap.Margin = new Padding(3, 2, 3, 2);
-            TilbageKnap.Name = "TilbageKnap";
-            TilbageKnap.Size = new Size(82, 22);
-            TilbageKnap.TabIndex = 1;
-            TilbageKnap.Text = "Tilbage";
-            TilbageKnap.UseVisualStyleBackColor = true;
+            Tilbage.Location = new Point(41, 376);
+            Tilbage.Name = "Tilbage";
+            Tilbage.Size = new Size(94, 29);
+            Tilbage.TabIndex = 1;
+            Tilbage.Text = "Tilbage";
+            Tilbage.UseVisualStyleBackColor = true;
+            Tilbage.Click += Tilbage_Click;
             // 
             // LetKnap
             // 
-            LetKnap.Location = new Point(358, 282);
-            LetKnap.Margin = new Padding(3, 2, 3, 2);
-            LetKnap.Name = "LetKnap";
-            LetKnap.Size = new Size(82, 22);
-            LetKnap.TabIndex = 2;
-            LetKnap.Text = "Let";
-            LetKnap.UseVisualStyleBackColor = true;
+            Let.Location = new Point(409, 376);
+            Let.Name = "Let";
+            Let.Size = new Size(94, 29);
+            Let.TabIndex = 2;
+            Let.Text = "Let";
+            Let.UseVisualStyleBackColor = true;
+            Let.Click += Let_Click;
             // 
             // MellemKnap
             // 
-            MellemKnap.Location = new Point(458, 282);
-            MellemKnap.Margin = new Padding(3, 2, 3, 2);
-            MellemKnap.Name = "MellemKnap";
-            MellemKnap.Size = new Size(82, 22);
-            MellemKnap.TabIndex = 3;
-            MellemKnap.Text = "Mellem";
-            MellemKnap.UseVisualStyleBackColor = true;
+            Mellem.Location = new Point(523, 376);
+            Mellem.Name = "Mellem";
+            Mellem.Size = new Size(94, 29);
+            Mellem.TabIndex = 3;
+            Mellem.Text = "Mellem";
+            Mellem.UseVisualStyleBackColor = true;
+            Mellem.Click += Mellem_Click;
             // 
             // SværKnap
             // 
-            SværKnap.Location = new Point(557, 282);
-            SværKnap.Margin = new Padding(3, 2, 3, 2);
-            SværKnap.Name = "SværKnap";
-            SværKnap.Size = new Size(82, 22);
-            SværKnap.TabIndex = 4;
-            SværKnap.Text = "Svær";
-            SværKnap.UseVisualStyleBackColor = true;
+            Svær.Location = new Point(637, 376);
+            Svær.Name = "Svær";
+            Svær.Size = new Size(94, 29);
+            Svær.TabIndex = 4;
+            Svær.Text = "Svær";
+            Svær.UseVisualStyleBackColor = true;
+            Svær.Click += Svær_Click;
             // 
             // label1
             // 
