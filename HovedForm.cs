@@ -51,11 +51,11 @@ namespace Eksamensprojekt
 
         private void HovedForm_ResizeEnd(object sender, EventArgs e)
         {
-            float w_scale = (float)ClientSize.Width / new_child.Size.Width;
-            float h_scale = (float)ClientSize.Height / new_child.Size.Height;
-            new_child.Size = ClientSize - new Size(5, 5);
+            float w_scale = (float)ClientSize.Width / ActiveMdiChild.Size.Width;
+            float h_scale = (float)ClientSize.Height / ActiveMdiChild.Size.Height;
+            ActiveMdiChild.Size = ClientSize - new Size(5, 5);
 
-            foreach (Control control in new_child.Controls)
+            foreach (Control control in ActiveMdiChild.Controls)
             {
                 control.Location = new Point((int)((float)control.Location.X * w_scale), (int)((float)control.Location.Y * h_scale));
             }
