@@ -16,10 +16,5 @@ namespace Eksamensprojekt
         {
             InitializeComponent();
         }
-
-        private void SvarBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
