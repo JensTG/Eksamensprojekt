@@ -38,6 +38,9 @@
             NæsteOpgaveKnap = new Button();
             ForigeOpgaveKnap = new Button();
             ((System.ComponentModel.ISupportInitialize)OpgaveBilled).BeginInit();
+
+            SvarBox = new RichTextBox();
+            ((System.ComponentModel.ISupportInitialize)OpgaveBilled).BeginInit();
             SuspendLayout();
             // 
             // OpgaveBilled
@@ -47,6 +50,8 @@
             OpgaveBilled.Size = new Size(749, 207);
             OpgaveBilled.TabIndex = 0;
             OpgaveBilled.TabStop = false;
+
+
             // 
             // OpgaveTekst
             // 
@@ -64,6 +69,7 @@
             SvarknapA.TabIndex = 2;
             SvarknapA.Text = "A";
             SvarknapA.UseVisualStyleBackColor = true;
+
             // 
             // SvarknapB
             // 
@@ -73,6 +79,7 @@
             SvarknapB.TabIndex = 3;
             SvarknapB.Text = "B";
             SvarknapB.UseVisualStyleBackColor = true;
+
             // 
             // SvarknapC
             // 
@@ -82,6 +89,8 @@
             SvarknapC.TabIndex = 4;
             SvarknapC.Text = "C";
             SvarknapC.UseVisualStyleBackColor = true;
+
+
             // 
             // SvarknapD
             // 
@@ -118,6 +127,7 @@
             ForigeOpgaveKnap.TabIndex = 8;
             ForigeOpgaveKnap.Text = "Forige Opgave";
             ForigeOpgaveKnap.UseVisualStyleBackColor = true;
+
             // 
             // SvarBox
             // 
@@ -143,6 +153,15 @@
             Controls.Add(SvarknapA);
             Controls.Add(OpgaveTekst);
             Controls.Add(OpgaveBilled);
+            ClientSize = new Size(914, 600);
+            Controls.Add(SvarBox);
+            Controls.Add(SvarknapD);
+            Controls.Add(SvarknapC);
+            Controls.Add(SvarknapB);
+            Controls.Add(SvarknapA);
+            Controls.Add(OpgaveTekst);
+            Controls.Add(OpgaveBilled);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "OpgaveSide";
             Text = "OpgaveSide";
             ((System.ComponentModel.ISupportInitialize)OpgaveBilled).EndInit();
