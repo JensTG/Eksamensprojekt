@@ -39,30 +39,30 @@
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(11, 14);
+            listBox1.Location = new Point(12, 11);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(343, 424);
+            listBox1.Size = new Size(343, 319);
             listBox1.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(376, 14);
+            pictureBox1.Location = new Point(361, 11);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(401, 241);
+            pictureBox1.Size = new Size(327, 153);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // beskrivelselabel
             // 
-            beskrivelselabel.Location = new Point(376, 262);
+            beskrivelselabel.Location = new Point(361, 167);
             beskrivelselabel.Name = "beskrivelselabel";
-            beskrivelselabel.Size = new Size(401, 124);
+            beskrivelselabel.Size = new Size(327, 137);
             beskrivelselabel.TabIndex = 2;
             beskrivelselabel.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e";
             // 
             // VidereKnap
             // 
-            VidereKnap.Location = new Point(376, 415);
+            VidereKnap.Location = new Point(487, 307);
             VidereKnap.Name = "VidereKnap";
             VidereKnap.Size = new Size(75, 23);
             VidereKnap.TabIndex = 3;
@@ -74,7 +74,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(VidereKnap);
             Controls.Add(beskrivelselabel);
             Controls.Add(pictureBox1);

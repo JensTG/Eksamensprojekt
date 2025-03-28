@@ -5,6 +5,8 @@ namespace Eksamensprojekt
 		public static HovedForm hoved_form = new HovedForm();
 		public static Opgave nuværende_opgave = new Opgave();
 
+		public static VælgEmne emneside = new VælgEmne();
+
 		/// <summary>
 		///  The main entry point for the application.
 		/// </summary>

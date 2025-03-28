@@ -120,7 +120,6 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(125, 27);
             textBox5.TabIndex = 9;
-            textBox5.TextChanged += this.textBox5_TextChanged;
             // 
             // Beskrivelse
             // 

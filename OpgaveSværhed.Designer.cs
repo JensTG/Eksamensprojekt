@@ -48,49 +48,37 @@
             // 
             // TilbageKnap
             // 
-            Tilbage.Location = new Point(41, 376);
-            Tilbage.Name = "Tilbage";
-            Tilbage.Size = new Size(94, 29);
-            Tilbage.TabIndex = 1;
-            Tilbage.Text = "Tilbage";
-            Tilbage.UseVisualStyleBackColor = true;
-            Tilbage.Click += Tilbage_Click;
+            TilbageKnap.Location = new Point(12, 303);
+            TilbageKnap.Name = "TilbageKnap";
+            TilbageKnap.Size = new Size(75, 23);
+            TilbageKnap.TabIndex = 9;
             // 
             // LetKnap
             // 
-            Let.Location = new Point(409, 376);
-            Let.Name = "Let";
-            Let.Size = new Size(94, 29);
-            Let.TabIndex = 2;
-            Let.Text = "Let";
-            Let.UseVisualStyleBackColor = true;
-            Let.Click += Let_Click;
+            LetKnap.Location = new Point(437, 197);
+            LetKnap.Name = "LetKnap";
+            LetKnap.Size = new Size(75, 23);
+            LetKnap.TabIndex = 8;
             // 
             // MellemKnap
             // 
-            Mellem.Location = new Point(523, 376);
-            Mellem.Name = "Mellem";
-            Mellem.Size = new Size(94, 29);
-            Mellem.TabIndex = 3;
-            Mellem.Text = "Mellem";
-            Mellem.UseVisualStyleBackColor = true;
-            Mellem.Click += Mellem_Click;
+            MellemKnap.Location = new Point(518, 197);
+            MellemKnap.Name = "MellemKnap";
+            MellemKnap.Size = new Size(75, 23);
+            MellemKnap.TabIndex = 7;
             // 
             // SværKnap
             // 
-            Svær.Location = new Point(637, 376);
-            Svær.Name = "Svær";
-            Svær.Size = new Size(94, 29);
-            Svær.TabIndex = 4;
-            Svær.Text = "Svær";
-            Svær.UseVisualStyleBackColor = true;
-            Svær.Click += Svær_Click;
+            SværKnap.Location = new Point(599, 197);
+            SværKnap.Name = "SværKnap";
+            SværKnap.Size = new Size(75, 23);
+            SværKnap.TabIndex = 6;
             // 
             // label1
             // 
-            label1.Location = new Point(390, 70);
+            label1.Location = new Point(390, 44);
             label1.Name = "label1";
-            label1.Size = new Size(284, 140);
+            label1.Size = new Size(284, 150);
             label1.TabIndex = 5;
             label1.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e";
             label1.Click += label1_Click;

@@ -20,7 +20,7 @@ namespace Eksamensprojekt
 		private void button1_Click(object sender, EventArgs e)
 		{
 			// Midlertidig:
-            Program.hoved_form.ChangeChild(new VælgEmne());
+            Program.hoved_form.ChangeChild(Program.emneside);
 			return;
 
             int status = BL.ErBruger(textBox1.Text, textBox2.Text);

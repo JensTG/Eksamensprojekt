@@ -42,6 +42,12 @@ namespace Eksamensprojekt
 		private int korrekt;
 		public int svar;
 
+		public MultipleChoice() { }
+		public MultipleChoice(string fil)
+		{
+			this.IndlæsSpørgsmål(fil);
+		}
+
 		override public void IndlæsSpørgsmål(string fil)
 		{
 			base.IndlæsSpørgsmål(fil);
@@ -63,6 +69,12 @@ namespace Eksamensprojekt
 	file class ÅbentSvar : Spørgsmål
 	{
 		public string svar = "";
+
+		public ÅbentSvar() { }
+		public ÅbentSvar(string fil)
+		{
+			this.IndlæsSpørgsmål(fil);
+		}
 	}
 
 	public class Opgave
@@ -79,8 +91,17 @@ namespace Eksamensprojekt
 			string[] spørgsmålsstier = Directory.GetFiles(opgavesti);
 			foreach (string spørgsmålssti in spørgsmålsstier)
 			{
-				if()
-				spørgsmål.Add()
+				if (!File.Exists(spørgsmålssti))
+					continue;
+
+				if (spørgsmålssti.Contains("MC"))
+					spørgsmål.Add(new MultipleChoice(spørgsmålssti));
+
+				else if (spørgsmålssti.Contains("ÅS"))
+					spørgsmål.Add(new ÅbentSvar(spørgsmålssti));
+
+				else
+					continue;
 			}
 		}
 
@@ -96,12 +117,12 @@ namespace Eksamensprojekt
 
 		Spørgsmål Forrige()
 		{
-            if (index > 0)
-            {
-                return spørgsmål[--index];
-            }
-            return null; // Der er ikke flere spørgsmål
-        }
+			if (index > 0)
+			{
+				return spørgsmål[--index];
+			}
+			return null; // Der er ikke flere spørgsmål
+		}
 
 		// Hvor mange Spørgsmål har eleven svaret rigtigt på?
 		int AntalRigtige()
