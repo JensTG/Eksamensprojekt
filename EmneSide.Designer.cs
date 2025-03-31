@@ -62,7 +62,7 @@
             // 
             // VidereKnap
             // 
-            VidereKnap.Location = new Point(487, 307);
+            VidereKnap.Location = new Point(487, 303);
             VidereKnap.Name = "VidereKnap";
             VidereKnap.Size = new Size(75, 23);
             VidereKnap.TabIndex = 3;

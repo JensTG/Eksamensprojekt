@@ -142,8 +142,20 @@ namespace Eksamensprojekt
 		// Rækkefølge på array: brugernavn, adgangskode, rang
 		public static List<string[]> brugere = new List<string[]>();
 
-		// -1: Ikke bruger, 0: Elev, 1: Lærer
-		public static int ErBruger(string brugernavn, string adgangskode)
+		// Opgaverne
+		public static List<Opgave> alle_opgaver = new List<Opgave>();
+        public static int opgaveindeks = 0;
+		public static int sværhedsgrad = 0; // 0: Let, 1: Mellem, 2: Svær
+
+        // Spørgsmålene
+        public static List<Spørgsmål> spørgsmål = new List<Spørgsmål>();
+        public static int spørgsmålsindeks = 0;
+
+		// Data
+		public static string data_path = "";
+
+        // -1: Ikke bruger, 0: Elev, 1: Lærer
+        public static int ErBruger(string brugernavn, string adgangskode)
 		{
 			for (int i = 0; i < brugere.Count; i++)
 			{
@@ -156,6 +168,7 @@ namespace Eksamensprojekt
 			}
 			return -1;
 		}
+		
 		public static bool OpretBruger(string brugernavn, string adgangskode)
 		{
 			//Tjekker om en bruger med samme brugernavn findes
@@ -169,6 +182,11 @@ namespace Eksamensprojekt
 			string[] bruger = { brugernavn, adgangskode, "elev" };
 			brugere.Add(bruger);
 			return false;
+		}
+
+		public static void IndlæsData()
+		{
+
 		}
 	}
 }

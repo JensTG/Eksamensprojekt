@@ -39,102 +39,120 @@
             pictureBox1 = new PictureBox();
             textBox5 = new TextBox();
             Beskrivelse = new Label();
+            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // MulighedA
             // 
             MulighedA.AutoSize = true;
-            MulighedA.Location = new Point(186, 338);
+            MulighedA.Location = new Point(163, 253);
             MulighedA.Name = "MulighedA";
-            MulighedA.Size = new Size(22, 20);
+            MulighedA.Size = new Size(18, 15);
             MulighedA.TabIndex = 0;
             MulighedA.Text = "A:";
             // 
             // MulighedB
             // 
             MulighedB.AutoSize = true;
-            MulighedB.Location = new Point(187, 372);
+            MulighedB.Location = new Point(164, 280);
             MulighedB.Name = "MulighedB";
-            MulighedB.Size = new Size(21, 20);
+            MulighedB.Size = new Size(17, 15);
             MulighedB.TabIndex = 1;
             MulighedB.Text = "B:";
             // 
             // MulighedC
             // 
             MulighedC.AutoSize = true;
-            MulighedC.Location = new Point(387, 336);
+            MulighedC.Location = new Point(339, 253);
             MulighedC.Name = "MulighedC";
-            MulighedC.Size = new Size(21, 20);
+            MulighedC.Size = new Size(18, 15);
             MulighedC.TabIndex = 2;
             MulighedC.Text = "C:";
             // 
             // MulighedD
             // 
             MulighedD.AutoSize = true;
-            MulighedD.Location = new Point(387, 369);
+            MulighedD.Location = new Point(339, 280);
             MulighedD.Name = "MulighedD";
-            MulighedD.Size = new Size(23, 20);
+            MulighedD.Size = new Size(18, 15);
             MulighedD.TabIndex = 3;
             MulighedD.Text = "D:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(214, 336);
+            textBox1.Location = new Point(187, 250);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
+            textBox1.Size = new Size(110, 23);
             textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(214, 369);
+            textBox2.Location = new Point(187, 277);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
+            textBox2.Size = new Size(110, 23);
             textBox2.TabIndex = 5;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(416, 338);
+            textBox3.Location = new Point(363, 250);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
+            textBox3.Size = new Size(110, 23);
             textBox3.TabIndex = 6;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(416, 369);
+            textBox4.Location = new Point(363, 277);
+            textBox4.Margin = new Padding(3, 2, 3, 2);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 27);
+            textBox4.Size = new Size(110, 23);
             textBox4.TabIndex = 7;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(214, 12);
+            pictureBox1.Location = new Point(187, 9);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(353, 139);
+            pictureBox1.Size = new Size(309, 104);
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(311, 241);
+            textBox5.Location = new Point(272, 181);
+            textBox5.Margin = new Padding(3, 2, 3, 2);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(125, 27);
+            textBox5.Size = new Size(110, 23);
             textBox5.TabIndex = 9;
             // 
             // Beskrivelse
             // 
             Beskrivelse.AutoSize = true;
-            Beskrivelse.Location = new Point(221, 244);
+            Beskrivelse.Location = new Point(193, 183);
             Beskrivelse.Name = "Beskrivelse";
-            Beskrivelse.Size = new Size(84, 20);
+            Beskrivelse.Size = new Size(67, 15);
             Beskrivelse.TabIndex = 10;
             Beskrivelse.Text = "Beskrivelse:";
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(546, 252);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(82, 19);
+            checkBox1.TabIndex = 11;
+            checkBox1.Text = "Åbent svar";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // OpgaveEditor
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
+            Controls.Add(checkBox1);
             Controls.Add(Beskrivelse);
             Controls.Add(textBox5);
             Controls.Add(pictureBox1);
@@ -146,6 +164,7 @@
             Controls.Add(MulighedC);
             Controls.Add(MulighedB);
             Controls.Add(MulighedA);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "OpgaveEditor";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -166,5 +185,6 @@
         private PictureBox pictureBox1;
         private TextBox textBox5;
         private Label Beskrivelse;
+        private CheckBox checkBox1;
     }
 }

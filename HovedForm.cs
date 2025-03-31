@@ -28,7 +28,7 @@ namespace Eksamensprojekt
 		{
 			foreach (Form child in MdiChildren)
 			{
-				child.Close();
+				child.Hide();
 			}
 
 			new_child.MdiParent = this;

@@ -1,9 +1,9 @@
 namespace Eksamensprojekt
 {
+	using static Program;
 	internal static class Program
 	{
 		public static HovedForm hoved_form = new HovedForm();
-		public static Opgave nuværende_opgave = new Opgave();
 
 		public static VælgEmne emneside = new VælgEmne();
 

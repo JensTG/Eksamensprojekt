@@ -17,11 +17,6 @@ namespace Eksamensprojekt
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Svær_Click(object sender, EventArgs e)
         {
             Program.hoved_form.ChangeChild(new OpgaveSide());
@@ -37,9 +32,25 @@ namespace Eksamensprojekt
             Program.hoved_form.ChangeChild(new OpgaveSide());
         }
 
-        private void Tilbage_Click(object sender, EventArgs e)
+        private void ForrigeOpgaveKnap_Click(object sender, EventArgs e)
         {
-            Program.hoved_form.ChangeChild(new VælgEmne());
+
+        }
+
+        private void MenuKnap_Click(object sender, EventArgs e)
+        {
+            Program.hoved_form.ChangeChild(Program.emneside);
+        }
+
+        private void NæsteOpgaveKnap_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OpgaveSværhed_Load(object sender, EventArgs e)
+        {
+            if (BL.opgaveindeks == 0) ForrigeOpgaveKnap.Enabled = false;
+            if (BL.opgaveindeks >= BL.alle_opgaver.Count) NæsteOpgaveKnap.Enabled = false;
         }
     }
 }

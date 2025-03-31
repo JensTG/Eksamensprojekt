@@ -35,6 +35,7 @@
             Brugernavn = new Label();
             Adgangskode = new Label();
             OpretBrugerKnap = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -57,7 +58,6 @@
             pictureBox1.Size = new Size(418, 177);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // textBox1
             // 
@@ -105,11 +105,22 @@
             OpretBrugerKnap.UseVisualStyleBackColor = true;
             OpretBrugerKnap.Click += button2_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(294, 108);
+            button1.Name = "button1";
+            button1.Size = new Size(130, 23);
+            button1.TabIndex = 7;
+            button1.Text = "Indlæs programdata";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += IndlæsDataKnap;
+            // 
             // Loginside
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(button1);
             Controls.Add(OpretBrugerKnap);
             Controls.Add(Adgangskode);
             Controls.Add(Brugernavn);
@@ -120,6 +131,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "Loginside";
             Text = "Form1";
+            Load += Loginside_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -134,5 +146,6 @@
         private Label Brugernavn;
         private Label Adgangskode;
         private Button OpretBrugerKnap;
+        private Button button1;
     }
 }
