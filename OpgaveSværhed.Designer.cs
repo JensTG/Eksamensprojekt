@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
-            TilbageKnap = new Button();
+            ForrigeOpgaveKnap = new Button();
             LetKnap = new Button();
             MellemKnap = new Button();
             SværKnap = new Button();
             label1 = new Label();
+            NæsteOpgaveKnap = new Button();
+            MenuKnap = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -46,69 +48,85 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // TilbageKnap
+            // ForrigeOpgaveKnap
             // 
-            Tilbage.Location = new Point(41, 376);
-            Tilbage.Name = "Tilbage";
-            Tilbage.Size = new Size(94, 29);
-            Tilbage.TabIndex = 1;
-            Tilbage.Text = "Tilbage";
-            Tilbage.UseVisualStyleBackColor = true;
-            Tilbage.Click += Tilbage_Click;
+            ForrigeOpgaveKnap.Location = new Point(12, 303);
+            ForrigeOpgaveKnap.Name = "ForrigeOpgaveKnap";
+            ForrigeOpgaveKnap.Size = new Size(75, 23);
+            ForrigeOpgaveKnap.TabIndex = 9;
+            ForrigeOpgaveKnap.Text = "Forrige";
+            ForrigeOpgaveKnap.Click += ForrigeOpgaveKnap_Click;
             // 
             // LetKnap
             // 
-            Let.Location = new Point(409, 376);
-            Let.Name = "Let";
-            Let.Size = new Size(94, 29);
-            Let.TabIndex = 2;
-            Let.Text = "Let";
-            Let.UseVisualStyleBackColor = true;
-            Let.Click += Let_Click;
+            LetKnap.Location = new Point(437, 197);
+            LetKnap.Name = "LetKnap";
+            LetKnap.Size = new Size(75, 23);
+            LetKnap.TabIndex = 8;
+            LetKnap.Text = "Let";
+            LetKnap.Click += Let_Click;
             // 
             // MellemKnap
             // 
-            Mellem.Location = new Point(523, 376);
-            Mellem.Name = "Mellem";
-            Mellem.Size = new Size(94, 29);
-            Mellem.TabIndex = 3;
-            Mellem.Text = "Mellem";
-            Mellem.UseVisualStyleBackColor = true;
-            Mellem.Click += Mellem_Click;
+            MellemKnap.Location = new Point(518, 197);
+            MellemKnap.Name = "MellemKnap";
+            MellemKnap.Size = new Size(75, 23);
+            MellemKnap.TabIndex = 7;
+            MellemKnap.Text = "Mellem";
+            MellemKnap.Click += Mellem_Click;
             // 
             // SværKnap
             // 
-            Svær.Location = new Point(637, 376);
-            Svær.Name = "Svær";
-            Svær.Size = new Size(94, 29);
-            Svær.TabIndex = 4;
-            Svær.Text = "Svær";
-            Svær.UseVisualStyleBackColor = true;
-            Svær.Click += Svær_Click;
+            SværKnap.Location = new Point(599, 197);
+            SværKnap.Name = "SværKnap";
+            SværKnap.Size = new Size(75, 23);
+            SværKnap.TabIndex = 6;
+            SværKnap.Text = "Svær";
+            SværKnap.Click += Svær_Click;
             // 
             // label1
             // 
-            label1.Location = new Point(390, 70);
+            label1.Location = new Point(390, 44);
             label1.Name = "label1";
-            label1.Size = new Size(284, 140);
+            label1.Size = new Size(284, 150);
             label1.TabIndex = 5;
             label1.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e";
-            label1.Click += label1_Click;
+            // 
+            // NæsteOpgaveKnap
+            // 
+            NæsteOpgaveKnap.Location = new Point(613, 303);
+            NæsteOpgaveKnap.Name = "NæsteOpgaveKnap";
+            NæsteOpgaveKnap.Size = new Size(75, 23);
+            NæsteOpgaveKnap.TabIndex = 10;
+            NæsteOpgaveKnap.Text = "Næste";
+            NæsteOpgaveKnap.Click += NæsteOpgaveKnap_Click;
+            // 
+            // MenuKnap
+            // 
+            MenuKnap.Location = new Point(321, 303);
+            MenuKnap.Name = "MenuKnap";
+            MenuKnap.Size = new Size(75, 23);
+            MenuKnap.TabIndex = 11;
+            MenuKnap.Text = "Menu";
+            MenuKnap.Click += MenuKnap_Click;
             // 
             // OpgaveSværhed
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(MenuKnap);
+            Controls.Add(NæsteOpgaveKnap);
             Controls.Add(label1);
             Controls.Add(SværKnap);
             Controls.Add(MellemKnap);
             Controls.Add(LetKnap);
-            Controls.Add(TilbageKnap);
+            Controls.Add(ForrigeOpgaveKnap);
             Controls.Add(pictureBox1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "OpgaveSværhed";
             Text = "OpgaveSværhed";
+            Load += OpgaveSværhed_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -116,10 +134,12 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private Button TilbageKnap;
+        private Button ForrigeOpgaveKnap;
         private Button LetKnap;
         private Button MellemKnap;
         private Button SværKnap;
         private Label label1;
+        private Button NæsteOpgaveKnap;
+        private Button MenuKnap;
     }
 }

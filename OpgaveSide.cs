@@ -17,7 +17,18 @@ namespace Eksamensprojekt
             InitializeComponent();
         }
 
-        private void SvarBox_TextChanged(object sender, EventArgs e)
+        private void MenuKnap_Click(object sender, EventArgs e)
+        {
+            Program.hoved_form.ChangeChild(Program.emneside);
+        }
+
+        private void OpgaveSide_Load(object sender, EventArgs e)
+        {
+            if (BL.spørgsmålsindeks == 0) ForrigeOpgaveKnap.Enabled = false;
+            if (BL.spørgsmålsindeks >= BL.spørgsmål.Count) NæsteOpgaveKnap.Enabled = false;
+        }
+
+        private void IndlæsSpørgsmål()
         {
 
         }

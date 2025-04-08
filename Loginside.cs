@@ -1,3 +1,5 @@
+using ofuasofhuoashhd;
+
 namespace Eksamensprojekt
 {
     public partial class Loginside : Form
@@ -7,11 +9,6 @@ namespace Eksamensprojekt
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Brugernavn_Click(object sender, EventArgs e)
         {
 
@@ -19,8 +16,12 @@ namespace Eksamensprojekt
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Midlertidig:
+            Program.hoved_form.ChangeChild(Program.emneside);
+            return;
+
             int status = BL.ErBruger(textBox1.Text, textBox2.Text);
-           
+
             switch (status)
             {
                 case -1:
@@ -40,14 +41,25 @@ namespace Eksamensprojekt
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             bool oprettet = BL.OpretBruger(textBox1.Text, textBox2.Text);
-            
-            
+
             if (oprettet == true)
             {
                 MessageBox.Show("Brugeren eksisterer allerede");
             }
             MessageBox.Show("Brugeren er nu oprettet");
+        }
+
+        private void Loginside_Load(object sender, EventArgs e)
+        {
+            pictureBox1.Hide();
+        }
+
+        private void IndlæsDataKnap(object sender, EventArgs e)
+        {
+            Explorer explorer = new Explorer();
+            explorer.ShowDialog();
         }
     }
 }
