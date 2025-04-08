@@ -62,7 +62,7 @@ namespace Eksamensprojekt
 			beskrivelse += '#' + korrekt;
 			foreach (string mulighed in mulige_svar)
 				beskrivelse += '#' + mulighed;
-			base.GemSpørgsmål(fil, billede_sti);
+			base.GemSpørgsmål(fil + "#MC", billede_sti);
 		}
 	}
 
@@ -75,13 +75,17 @@ namespace Eksamensprojekt
 		{
 			this.IndlæsSpørgsmål(fil);
 		}
+		public override void GemSpørgsmål(string fil, string billede_sti)
+		{
+			base.GemSpørgsmål(fil + "#ÅS", billede_sti);
+		}
 	}
 
 	public class Opgave
 	{
-		List<Spørgsmål> spørgsmål = new List<Spørgsmål>();
-		int index = 0;
-		bool indlæst = false;
+		public List<Spørgsmål> spørgsmål = new List<Spørgsmål>();
+		public int index = 0;
+		public bool indlæst = false;
 		
 		void IndlæsOpgave(string opgavesti)
 		{
@@ -144,31 +148,37 @@ namespace Eksamensprojekt
 
 		// Opgaverne
 		public static List<Opgave> alle_opgaver = new List<Opgave>();
-        public static int opgaveindeks = 0;
+		public static List<Opgave> besvarelser = new List<Opgave>();
+		public static int opgaveindeks = 0;
 		public static int sværhedsgrad = 0; // 0: Let, 1: Mellem, 2: Svær
 
-        // Spørgsmålene
-        public static List<Spørgsmål> spørgsmål = new List<Spørgsmål>();
-        public static int spørgsmålsindeks = 0;
+		// Spørgsmålene
+		public static List<Spørgsmål> spørgsmål = new List<Spørgsmål>();
+		public static int spørgsmålsindeks = 0;
 
 		// Data
-		public static string data_path = "";
+		public static string data_sti = "";
 
-        // -1: Ikke bruger, 0: Elev, 1: Lærer
-        public static int ErBruger(string brugernavn, string adgangskode)
+		// -1: Ikke bruger, 0: Elev, 1: Lærer
+		public static int ErBruger(string brugernavn, string adgangskode)
 		{
 			for (int i = 0; i < brugere.Count; i++)
 			{
-				if (brugere[i][0] == brugernavn && brugere[i][1] == adgangskode)
+				if (brugere[i][0] != brugernavn || brugere[i][1] != adgangskode)
+					continue;
+
+				switch(brugere[i][2])
 				{
-					if (brugere[i][2] == "lærer")
+					case "l":
 						return 1;
-					return 0;
+					case "e":
+						return 0;
 				}
 			}
 			return -1;
 		}
 		
+		// true: ny bruger blev oprettet, false: ingen bruger blev oprettet (findes allerede)
 		public static bool OpretBruger(string brugernavn, string adgangskode)
 		{
 			//Tjekker om en bruger med samme brugernavn findes
@@ -176,17 +186,54 @@ namespace Eksamensprojekt
 			{   
 				if (brugere[i][0] == brugernavn)
 				{
-					return true;            
+					return false;            
 				}
 			}
-			string[] bruger = { brugernavn, adgangskode, "elev" };
+			string[] bruger = { brugernavn, adgangskode, "e" };
 			brugere.Add(bruger);
-			return false;
+			return true;
 		}
 
 		public static void IndlæsData()
 		{
+			using StreamReader sr = new StreamReader(data_sti + "\\brugere");
+			{
+				string[] linjer = sr.ReadToEnd().Split("\r\n");
 
+				foreach (string linje in linjer)
+				{
+					if (linje.Length < 5)
+						continue;
+
+					string[] værdier = linje.Split(' ');
+					if (værdier.Length == 3)
+						brugere.Add(værdier);
+				}
+			}
+
+			string[] opgavestier = Directory.GetDirectories(data_sti + "\\Opgaver");
+			foreach (string opgavesti in opgavestier)
+			{
+				Opgave ny_opgave = new Opgave();
+
+				string[] spørgsmålsstier = Directory.GetFiles(opgavesti);
+				foreach (string spørgsmålssti in spørgsmålsstier)
+				{
+					if (spørgsmålssti.Contains("MC"))
+					{
+						ny_opgave.spørgsmål.Add(new MultipleChoice(spørgsmålssti));
+						continue;
+					}
+
+					if (spørgsmålssti.Contains("ÅS"))
+					{
+						ny_opgave.spørgsmål.Add(new ÅbentSvar(spørgsmålssti));
+						continue;
+					}
+				}
+
+				alle_opgaver.Add(ny_opgave);
+			}
 		}
 	}
 }

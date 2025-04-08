@@ -36,11 +36,9 @@
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
-            pictureBox1 = new PictureBox();
             textBox5 = new TextBox();
             Beskrivelse = new Label();
             checkBox1 = new CheckBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // MulighedA
@@ -111,15 +109,6 @@
             textBox4.Size = new Size(110, 23);
             textBox4.TabIndex = 7;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(187, 9);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(309, 104);
-            pictureBox1.TabIndex = 8;
-            pictureBox1.TabStop = false;
-            // 
             // textBox5
             // 
             textBox5.Location = new Point(272, 181);
@@ -155,7 +144,6 @@
             Controls.Add(checkBox1);
             Controls.Add(Beskrivelse);
             Controls.Add(textBox5);
-            Controls.Add(pictureBox1);
             Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
@@ -167,7 +155,6 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "OpgaveEditor";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -182,7 +169,6 @@
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
-        private PictureBox pictureBox1;
         private TextBox textBox5;
         private Label Beskrivelse;
         private CheckBox checkBox1;

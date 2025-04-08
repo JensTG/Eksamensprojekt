@@ -16,10 +16,6 @@ namespace Eksamensprojekt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Midlertidig:
-            Program.hoved_form.ChangeChild(Program.emneside);
-            return;
-
             int status = BL.ErBruger(textBox1.Text, textBox2.Text);
 
             switch (status)
@@ -60,6 +56,12 @@ namespace Eksamensprojekt
         {
             Explorer explorer = new Explorer();
             explorer.ShowDialog();
+
+            BL.IndlæsData();
+            pictureBox1.Image = Image.FromFile(BL.data_sti + "\\billeder\\logo.png");
+            pictureBox1.Show();
+
+            button1.Hide();
         }
     }
 }

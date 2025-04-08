@@ -31,17 +31,9 @@ namespace ofuasofhuoashhd
             {
                 path_bar.Text = directory + file_view.Items[index].ToString();
             }
-            if (!path_bar.Text.Contains('.'))
-            {
-                file_view.Items.Clear();
-                file_view.Items.AddRange(GetContents(path_bar.Text));
-                directory = path_bar.Text;
-            }
-            else
-            {
-                BL.data_path = path_bar.Text;
-                Close();
-            }
+            file_view.Items.Clear();
+            file_view.Items.AddRange(GetContents(path_bar.Text));
+            directory = path_bar.Text;
         }
 
         string[] GetContents(string current)
@@ -83,17 +75,8 @@ namespace ofuasofhuoashhd
 
         private void confirm_button_Click(object sender, EventArgs e)
         {
-            if (!path_bar.Text.Contains('.'))
-            {
-                file_view.Items.Clear();
-                file_view.Items.AddRange(GetContents(path_bar.Text));
-                directory = path_bar.Text;
-            }
-            else
-            {
-                BL.data_path = path_bar.Text;
-                Close();
-            }
+            BL.data_sti = path_bar.Text;
+            Close();
         }
 
         private void back_button_Click(object sender, EventArgs e)
