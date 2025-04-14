@@ -8,30 +8,36 @@ namespace Eksamensprojekt
 
 	public abstract class Spørgsmål
 	{
-		public string beskrivelse = "";
-		public Image eksempelbillede = null;
+		public string? beskrivelse = "";
+		public Image? eksempelbillede = null;
 
 		// Fra fil
 		public virtual void IndlæsSpørgsmål(string fil)
 		{
 			using (StreamReader sr = new StreamReader(fil))
-			{
+			{ 
 				beskrivelse = sr.ReadLine();
-				string billede_sti = sr.ReadLine();
-				eksempelbillede = Image.FromFile(billede_sti);
+
+				string? billedesti = sr.ReadLine();
+				if (billedesti != null && File.Exists(billedesti))
+					eksempelbillede = Image.FromFile(billedesti);
 				sr.Close();
 			};
 		}
 
 		// Til fil
-		public virtual void GemSpørgsmål(string fil, string billede_sti)
+		public virtual void GemSpørgsmål(string fil, string billedesti)
 		{
 			using (StreamWriter sw = new StreamWriter(fil))
 			{
 				sw.WriteLine(beskrivelse);
-				sw.WriteLine(billede_sti);
-				eksempelbillede.Save(billede_sti);
-				sw.Close();
+
+                if (eksempelbillede != null)
+                {
+                    sw.WriteLine(billedesti);
+                    eksempelbillede.Save(billedesti);
+                }
+                sw.Close();
 			};
 		}
 	}
@@ -45,7 +51,7 @@ namespace Eksamensprojekt
 		public MultipleChoice() { }
 		public MultipleChoice(string fil)
 		{
-			this.IndlæsSpørgsmål(fil);
+			IndlæsSpørgsmål(fil);
 		}
 
 		override public void IndlæsSpørgsmål(string fil)
@@ -57,12 +63,12 @@ namespace Eksamensprojekt
 			mulige_svar = data[2..];
 		}
 
-		public override void GemSpørgsmål(string fil, string billede_sti)
+		public override void GemSpørgsmål(string fil, string billedesti)
 		{
 			beskrivelse += '#' + korrekt;
 			foreach (string mulighed in mulige_svar)
 				beskrivelse += '#' + mulighed;
-			base.GemSpørgsmål(fil + "#MC", billede_sti);
+			base.GemSpørgsmål(fil + "#MC", billedesti);
 		}
 	}
 
@@ -73,7 +79,7 @@ namespace Eksamensprojekt
 		public ÅbentSvar() { }
 		public ÅbentSvar(string fil)
 		{
-			this.IndlæsSpørgsmål(fil);
+			IndlæsSpørgsmål(fil);
 		}
 		public override void GemSpørgsmål(string fil, string billede_sti)
 		{
@@ -84,10 +90,13 @@ namespace Eksamensprojekt
 	public class Opgave
 	{
 		public List<Spørgsmål> spørgsmål = new List<Spørgsmål>();
+		public string? beskrivelse = "";
+		public Image? billede = null;
+
 		public int index = 0;
 		public bool indlæst = false;
 		
-		void IndlæsOpgave(string opgavesti)
+		public void IndlæsOpgave(string opgavesti)
 		{
 			if (!Directory.Exists(opgavesti))
 				return;
@@ -107,10 +116,60 @@ namespace Eksamensprojekt
 				else
 					continue;
 			}
+
+			// Indlæs meta-data om opgaven
+			if (File.Exists(opgavesti + "meta.txt"))
+			{
+				using (StreamReader sr = new StreamReader(opgavesti + "meta.txt"))
+				{
+					beskrivelse = sr.ReadLine();
+
+					string? billede_sti = sr.ReadLine();
+					if (billede_sti != null && File.Exists(billede_sti))
+						billede = Image.FromFile(billede_sti);
+					sr.Close();
+				};
+			}
 		}
 
+		public void GemOpgave(string opgavesti)
+		{
+            string billedesti = "";
+
+            if (Directory.Exists(opgavesti) && opgavesti.Length > 7) // For at være sikker
+				Directory.Delete(opgavesti, true);
+
+			for (int i = 0; i < spørgsmål.Count; i++)
+			{
+				Random rnd = new Random();
+				if (spørgsmål[i].GetType() == typeof(MultipleChoice))
+				{
+					do
+					{
+						billedesti = BL.data_sti + "\\spm#" + rnd.NextInt64(1000).ToString("0000");
+					} while (File.Exists(billedesti));
+					spørgsmål[i].GemSpørgsmål(opgavesti + "\\" + i.ToString("000"), billedesti);
+				}
+			}
+
+			// Gem meta-data om opgaven
+			using (StreamWriter sw = new StreamWriter(opgavesti + "meta.txt"))
+			{
+				sw.WriteLine(beskrivelse);
+
+				if (billede != null)
+				{
+					sw.WriteLine(billedesti);
+					billede.Save(billedesti);
+				}
+
+				sw.Close();
+			};
+		}
+
+
 		// Returnerer næste spørgsmål eller null, hvis der ikke er flere
-		Spørgsmål Næste()
+		Spørgsmål? Næste()
 		{
 			if (index < spørgsmål.Count() - 1)
 			{
@@ -119,7 +178,7 @@ namespace Eksamensprojekt
 			return null; // Der er ikke flere spørgsmål
 		}
 
-		Spørgsmål Forrige()
+		Spørgsmål? Forrige()
 		{
 			if (index > 0)
 			{
@@ -215,22 +274,7 @@ namespace Eksamensprojekt
 			foreach (string opgavesti in opgavestier)
 			{
 				Opgave ny_opgave = new Opgave();
-
-				string[] spørgsmålsstier = Directory.GetFiles(opgavesti);
-				foreach (string spørgsmålssti in spørgsmålsstier)
-				{
-					if (spørgsmålssti.Contains("MC"))
-					{
-						ny_opgave.spørgsmål.Add(new MultipleChoice(spørgsmålssti));
-						continue;
-					}
-
-					if (spørgsmålssti.Contains("ÅS"))
-					{
-						ny_opgave.spørgsmål.Add(new ÅbentSvar(spørgsmålssti));
-						continue;
-					}
-				}
+				ny_opgave.IndlæsOpgave(opgavesti);
 
 				alle_opgaver.Add(ny_opgave);
 			}
