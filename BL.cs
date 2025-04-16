@@ -49,6 +49,11 @@ namespace Eksamensprojekt
 		public int svar;
 
 		public MultipleChoice() { }
+		public MultipleChoice(string[] mul, int korr)
+		{
+			mulige_svar = mul;
+			korrekt = korr;
+		}
 		public MultipleChoice(string fil)
 		{
 			IndlæsSpørgsmål(fil);
@@ -72,12 +77,16 @@ namespace Eksamensprojekt
 		}
 	}
 
-	file class ÅbentSvar : Spørgsmål
+	public class ÅbentSvar : Spørgsmål
 	{
 		public string svar = "";
 
 		public ÅbentSvar() { }
-		public ÅbentSvar(string fil)
+		public ÅbentSvar(string beskr)
+		{
+			beskrivelse = beskr;
+		}
+		public ÅbentSvar(string fil, bool fra_fil)
 		{
 			IndlæsSpørgsmål(fil);
 		}

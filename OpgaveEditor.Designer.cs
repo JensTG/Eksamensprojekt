@@ -32,19 +32,19 @@
             MulighedB = new Label();
             MulighedC = new Label();
             MulighedD = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            beskr_boks = new TextBox();
             Beskrivelse = new Label();
-            checkBox1 = new CheckBox();
+            ås_knap = new CheckBox();
+            ns_spm_knap = new Button();
+            upl_bil_knap = new Button();
+            gem_knap = new Button();
+            fr_spm_knap = new Button();
             SuspendLayout();
             // 
             // MulighedA
             // 
             MulighedA.AutoSize = true;
-            MulighedA.Location = new Point(163, 253);
+            MulighedA.Location = new Point(163, 232);
             MulighedA.Name = "MulighedA";
             MulighedA.Size = new Size(18, 15);
             MulighedA.TabIndex = 0;
@@ -53,7 +53,7 @@
             // MulighedB
             // 
             MulighedB.AutoSize = true;
-            MulighedB.Location = new Point(164, 280);
+            MulighedB.Location = new Point(164, 259);
             MulighedB.Name = "MulighedB";
             MulighedB.Size = new Size(17, 15);
             MulighedB.TabIndex = 1;
@@ -62,7 +62,7 @@
             // MulighedC
             // 
             MulighedC.AutoSize = true;
-            MulighedC.Location = new Point(339, 253);
+            MulighedC.Location = new Point(339, 232);
             MulighedC.Name = "MulighedC";
             MulighedC.Size = new Size(18, 15);
             MulighedC.TabIndex = 2;
@@ -71,83 +71,90 @@
             // MulighedD
             // 
             MulighedD.AutoSize = true;
-            MulighedD.Location = new Point(339, 280);
+            MulighedD.Location = new Point(339, 259);
             MulighedD.Name = "MulighedD";
             MulighedD.Size = new Size(18, 15);
             MulighedD.TabIndex = 3;
             MulighedD.Text = "D:";
             // 
-            // textBox1
+            // beskr_boks
             // 
-            textBox1.Location = new Point(187, 250);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(110, 23);
-            textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(187, 277);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(110, 23);
-            textBox2.TabIndex = 5;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(363, 250);
-            textBox3.Margin = new Padding(3, 2, 3, 2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(110, 23);
-            textBox3.TabIndex = 6;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(363, 277);
-            textBox4.Margin = new Padding(3, 2, 3, 2);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(110, 23);
-            textBox4.TabIndex = 7;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(272, 181);
-            textBox5.Margin = new Padding(3, 2, 3, 2);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(110, 23);
-            textBox5.TabIndex = 9;
+            beskr_boks.Location = new Point(272, 160);
+            beskr_boks.Margin = new Padding(3, 2, 3, 2);
+            beskr_boks.Name = "beskr_boks";
+            beskr_boks.Size = new Size(110, 23);
+            beskr_boks.TabIndex = 9;
+            beskr_boks.TextChanged += beskr_boks_TextChanged;
             // 
             // Beskrivelse
             // 
             Beskrivelse.AutoSize = true;
-            Beskrivelse.Location = new Point(193, 183);
+            Beskrivelse.Location = new Point(193, 162);
             Beskrivelse.Name = "Beskrivelse";
             Beskrivelse.Size = new Size(67, 15);
             Beskrivelse.TabIndex = 10;
             Beskrivelse.Text = "Beskrivelse:";
             // 
-            // checkBox1
+            // ås_knap
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(546, 252);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(82, 19);
-            checkBox1.TabIndex = 11;
-            checkBox1.Text = "Åbent svar";
-            checkBox1.UseVisualStyleBackColor = true;
+            ås_knap.AutoSize = true;
+            ås_knap.Location = new Point(546, 231);
+            ås_knap.Name = "ås_knap";
+            ås_knap.Size = new Size(82, 19);
+            ås_knap.TabIndex = 11;
+            ås_knap.Text = "Åbent svar";
+            ås_knap.UseVisualStyleBackColor = true;
+            // 
+            // ns_spm_knap
+            // 
+            ns_spm_knap.Location = new Point(613, 303);
+            ns_spm_knap.Name = "ns_spm_knap";
+            ns_spm_knap.Size = new Size(75, 23);
+            ns_spm_knap.TabIndex = 13;
+            ns_spm_knap.Text = "Næste";
+            ns_spm_knap.UseVisualStyleBackColor = true;
+            ns_spm_knap.Click += ns_spm_knap_Click;
+            // 
+            // upl_bil_knap
+            // 
+            upl_bil_knap.Location = new Point(272, 85);
+            upl_bil_knap.Name = "upl_bil_knap";
+            upl_bil_knap.Size = new Size(121, 23);
+            upl_bil_knap.TabIndex = 14;
+            upl_bil_knap.Text = "Upload billede";
+            upl_bil_knap.UseVisualStyleBackColor = true;
+            upl_bil_knap.Click += upl_bil_knap_Click;
+            // 
+            // gem_knap
+            // 
+            gem_knap.Location = new Point(307, 303);
+            gem_knap.Name = "gem_knap";
+            gem_knap.Size = new Size(75, 23);
+            gem_knap.TabIndex = 15;
+            gem_knap.Text = "Gem";
+            gem_knap.UseVisualStyleBackColor = true;
+            // 
+            // fr_spm_knap
+            // 
+            fr_spm_knap.Location = new Point(12, 303);
+            fr_spm_knap.Name = "fr_spm_knap";
+            fr_spm_knap.Size = new Size(75, 23);
+            fr_spm_knap.TabIndex = 16;
+            fr_spm_knap.Text = "Forrige";
+            fr_spm_knap.UseVisualStyleBackColor = true;
             // 
             // OpgaveEditor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
-            Controls.Add(checkBox1);
+            Controls.Add(fr_spm_knap);
+            Controls.Add(gem_knap);
+            Controls.Add(upl_bil_knap);
+            Controls.Add(ns_spm_knap);
+            Controls.Add(ås_knap);
             Controls.Add(Beskrivelse);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(beskr_boks);
             Controls.Add(MulighedD);
             Controls.Add(MulighedC);
             Controls.Add(MulighedB);
@@ -155,6 +162,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "OpgaveEditor";
             Text = "Form1";
+            Load += OpgaveEditor_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -165,12 +173,13 @@
         private Label MulighedB;
         private Label MulighedC;
         private Label MulighedD;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox[] mul_bokse;
+        private TextBox beskr_boks;
         private Label Beskrivelse;
-        private CheckBox checkBox1;
+        private CheckBox ås_knap;
+        private Button ns_spm_knap;
+        private Button upl_bil_knap;
+        private Button gem_knap;
+        private Button fr_spm_knap;
     }
 }
