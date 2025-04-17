@@ -1,24 +1,24 @@
 ﻿namespace Eksamensprojekt
 {
-    partial class OpgaveEditor
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class OpgaveEditor
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
         #region Windows Form Designer generated code
 
@@ -170,16 +170,15 @@
         #endregion
 
         private Label MulighedA;
-        private Label MulighedB;
-        private Label MulighedC;
-        private Label MulighedD;
-        private TextBox[] mul_bokse;
-        private TextBox beskr_boks;
-        private Label Beskrivelse;
-        private CheckBox ås_knap;
-        private Button ns_spm_knap;
-        private Button upl_bil_knap;
-        private Button gem_knap;
-        private Button fr_spm_knap;
-    }
+		private Label MulighedB;
+		private Label MulighedC;
+		private Label MulighedD;
+		private TextBox beskr_boks;
+		private Label Beskrivelse;
+		private CheckBox ås_knap;
+		private Button ns_spm_knap;
+		private Button upl_bil_knap;
+		private Button gem_knap;
+		private Button fr_spm_knap;
+	}
 }

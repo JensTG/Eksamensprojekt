@@ -10,9 +10,10 @@ namespace Eksamensprojekt
 	{
 		public string? beskrivelse = "";
 		public Image? eksempelbillede = null;
+        public string[] mulige_svar = { "", "", "", ""};
 
-		// Fra fil
-		public virtual void IndlæsSpørgsmål(string fil)
+        // Fra fil
+        public virtual void IndlæsSpørgsmål(string fil)
 		{
 			using (StreamReader sr = new StreamReader(fil))
 			{ 
@@ -44,7 +45,6 @@ namespace Eksamensprojekt
 
 	public class MultipleChoice : Spørgsmål
 	{
-		public string[] mulige_svar = { };
 		private int korrekt;
 		public int svar;
 
@@ -99,7 +99,8 @@ namespace Eksamensprojekt
 	public class Opgave
 	{
 		public List<Spørgsmål> spørgsmål = new List<Spørgsmål>();
-		public string? beskrivelse = "";
+		public string titel = "";
+		public string? beskrivelse;
 		public Image? billede = null;
 
 		public int index = 0;
@@ -131,6 +132,7 @@ namespace Eksamensprojekt
 			{
 				using (StreamReader sr = new StreamReader(opgavesti + "meta.txt"))
 				{
+					titel = sr.ReadLine();
 					beskrivelse = sr.ReadLine();
 
 					string? billede_sti = sr.ReadLine();
@@ -164,6 +166,7 @@ namespace Eksamensprojekt
 			// Gem meta-data om opgaven
 			using (StreamWriter sw = new StreamWriter(opgavesti + "meta.txt"))
 			{
+				sw.WriteLine(titel);
 				sw.WriteLine(beskrivelse);
 
 				if (billede != null)

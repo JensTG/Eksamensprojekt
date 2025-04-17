@@ -28,7 +28,7 @@ namespace Eksamensprojekt
                     return;
 
                 case 1:
-                    Program.hoved_form.ChangeChild(new LærerSide());
+                    Program.hoved_form.ChangeChild(new VisElevBesvarelser());
                     return;
 
             }
