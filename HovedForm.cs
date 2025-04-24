@@ -26,20 +26,19 @@ namespace Eksamensprojekt
 
 		public void ChangeChild(Form new_child)
 		{
-			foreach (Form child in MdiChildren)
+			foreach (Form child in MdiChildren) // Gemmer alle andre Forms end den der nu skal vises
 			{
 				child.Hide();
 			}
 
-			new_child.MdiParent = this;
+			new_child.MdiParent = this; // Gør Hoved-Formen til MDI Parent
 
-			new_child.FormBorderStyle = FormBorderStyle.None;
-			ClientSize = new_child.ClientSize + new Size(5, 5);
-			//new_child.WindowState = FormWindowState.Maximized;
+			new_child.FormBorderStyle = FormBorderStyle.None; // Fjerner "titel-blokken" på den indre Form
+			ClientSize = new_child.ClientSize + new Size(5, 5); // Sørger for at Hoved-Formen er stor nok til den indre form
 
 			new_child.Show();
-			new_child.Location = new Point(0, 0);
-			ActivateMdiChild(new_child);
+			new_child.Location = new Point(0, 0); // Rykker den indre Form helt op i venstre hjørne
+			ActivateMdiChild(new_child); // Sætter "fokus" på den indre Form
 		}
 	}
 }
