@@ -48,15 +48,15 @@ namespace Eksamensprojekt
 
 		private void IndlæsLister()
 		{
-            listBox1.Items.Clear();
-            listBox2.Items.Clear();
+			listBox1.Items.Clear();
+			listBox2.Items.Clear();
 
-            for (int i = 0; i < BL.brugere.Count; i++)
-                if (BL.brugere[i][2] == "e")
-                    listBox1.Items.Add(BL.brugere[i][0]);
+			for (int i = 0; i < BL.brugere.Count; i++)
+				if (BL.brugere[i][2] == "e")
+					listBox1.Items.Add(BL.brugere[i][0]);
 
-            for (int i = 0; i < BL.alle_opgaver.Count; i++)
-                listBox2.Items.Add(BL.alle_opgaver[i].titel);
-        }
+			for (int i = 0; i < BL.alle_opgaver.Count; i++)
+				listBox2.Items.Add(BL.alle_opgaver[i].titel);
+		}
 	}
 }

@@ -12,6 +12,8 @@ namespace Eksamensprojekt
 		public Image? eksempelbillede = null;
         public string[] mulige_svar = { "", "", "", ""};
 
+		public string korrekt = "";
+
         // Fra fil
         public virtual void IndlæsSpørgsmål(string fil)
 		{
@@ -45,14 +47,13 @@ namespace Eksamensprojekt
 
 	public class MultipleChoice : Spørgsmål
 	{
-		private int korrekt;
 		public int svar;
 
 		public MultipleChoice() { }
 		public MultipleChoice(string[] mul, int korr)
 		{
 			mulige_svar = mul;
-			korrekt = korr;
+			korrekt = korr.ToString();
 		}
 		public MultipleChoice(string fil)
 		{
@@ -64,7 +65,7 @@ namespace Eksamensprojekt
 			base.IndlæsSpørgsmål(fil);
 			string[] data = beskrivelse.Split('#');
 			beskrivelse = data[0];
-			korrekt = int.Parse(data[1]);
+			korrekt = data[1];
 			mulige_svar = data[2..];
 		}
 

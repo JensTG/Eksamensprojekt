@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            MulighedA = new Label();
-            MulighedB = new Label();
-            MulighedC = new Label();
-            MulighedD = new Label();
             beskr_boks = new TextBox();
             Beskrivelse = new Label();
             ås_knap = new CheckBox();
@@ -39,43 +35,9 @@
             upl_bil_knap = new Button();
             gem_knap = new Button();
             fr_spm_knap = new Button();
+            opgave_navn_box = new TextBox();
+            label1 = new Label();
             SuspendLayout();
-            // 
-            // MulighedA
-            // 
-            MulighedA.AutoSize = true;
-            MulighedA.Location = new Point(163, 232);
-            MulighedA.Name = "MulighedA";
-            MulighedA.Size = new Size(18, 15);
-            MulighedA.TabIndex = 0;
-            MulighedA.Text = "A:";
-            // 
-            // MulighedB
-            // 
-            MulighedB.AutoSize = true;
-            MulighedB.Location = new Point(164, 259);
-            MulighedB.Name = "MulighedB";
-            MulighedB.Size = new Size(17, 15);
-            MulighedB.TabIndex = 1;
-            MulighedB.Text = "B:";
-            // 
-            // MulighedC
-            // 
-            MulighedC.AutoSize = true;
-            MulighedC.Location = new Point(339, 232);
-            MulighedC.Name = "MulighedC";
-            MulighedC.Size = new Size(18, 15);
-            MulighedC.TabIndex = 2;
-            MulighedC.Text = "C:";
-            // 
-            // MulighedD
-            // 
-            MulighedD.AutoSize = true;
-            MulighedD.Location = new Point(339, 259);
-            MulighedD.Name = "MulighedD";
-            MulighedD.Size = new Size(18, 15);
-            MulighedD.TabIndex = 3;
-            MulighedD.Text = "D:";
             // 
             // beskr_boks
             // 
@@ -133,6 +95,7 @@
             gem_knap.TabIndex = 15;
             gem_knap.Text = "Gem";
             gem_knap.UseVisualStyleBackColor = true;
+            gem_knap.Click += gem_knap_Click;
             // 
             // fr_spm_knap
             // 
@@ -142,12 +105,32 @@
             fr_spm_knap.TabIndex = 16;
             fr_spm_knap.Text = "Forrige";
             fr_spm_knap.UseVisualStyleBackColor = true;
+            fr_spm_knap.Click += fr_spm_knap_Click;
+            // 
+            // opgave_navn_box
+            // 
+            opgave_navn_box.Location = new Point(272, 12);
+            opgave_navn_box.Name = "opgave_navn_box";
+            opgave_navn_box.Size = new Size(258, 23);
+            opgave_navn_box.TabIndex = 17;
+            opgave_navn_box.TextChanged += opgave_navn_box_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(177, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(89, 15);
+            label1.TabIndex = 18;
+            label1.Text = "Opgavens navn";
             // 
             // OpgaveEditor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(label1);
+            Controls.Add(opgave_navn_box);
             Controls.Add(fr_spm_knap);
             Controls.Add(gem_knap);
             Controls.Add(upl_bil_knap);
@@ -155,10 +138,6 @@
             Controls.Add(ås_knap);
             Controls.Add(Beskrivelse);
             Controls.Add(beskr_boks);
-            Controls.Add(MulighedD);
-            Controls.Add(MulighedC);
-            Controls.Add(MulighedB);
-            Controls.Add(MulighedA);
             Margin = new Padding(3, 2, 3, 2);
             Name = "OpgaveEditor";
             Text = "Form1";
@@ -168,17 +147,14 @@
         }
 
         #endregion
-
-        private Label MulighedA;
-		private Label MulighedB;
-		private Label MulighedC;
-		private Label MulighedD;
-		private TextBox beskr_boks;
+        private TextBox beskr_boks;
 		private Label Beskrivelse;
 		private CheckBox ås_knap;
 		private Button ns_spm_knap;
 		private Button upl_bil_knap;
 		private Button gem_knap;
 		private Button fr_spm_knap;
-	}
+        private TextBox opgave_navn_box;
+        private Label label1;
+    }
 }
