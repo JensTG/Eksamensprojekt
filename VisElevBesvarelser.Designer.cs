@@ -36,6 +36,7 @@
             VælgOpgave = new Label();
             ny_knap = new Button();
             slet_knap = new Button();
+            ret_knap = new Button();
             SuspendLayout();
             // 
             // listBox1
@@ -115,11 +116,22 @@
             slet_knap.UseVisualStyleBackColor = true;
             slet_knap.Click += slet_knap_Click;
             // 
+            // ret_knap
+            // 
+            ret_knap.Location = new Point(356, 296);
+            ret_knap.Name = "ret_knap";
+            ret_knap.Size = new Size(57, 23);
+            ret_knap.TabIndex = 11;
+            ret_knap.Text = "Ret";
+            ret_knap.UseVisualStyleBackColor = true;
+            ret_knap.Click += ret_knap_Click;
+            // 
             // VisElevBesvarelser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(ret_knap);
             Controls.Add(slet_knap);
             Controls.Add(ny_knap);
             Controls.Add(VælgOpgave);
@@ -146,5 +158,6 @@
         private Label VælgOpgave;
         private Button ny_knap;
         private Button slet_knap;
+        private Button ret_knap;
     }
 }

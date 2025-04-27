@@ -43,6 +43,7 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(343, 319);
             listBox1.TabIndex = 0;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // pictureBox1
             // 
@@ -81,6 +82,7 @@
             Controls.Add(listBox1);
             Name = "VælgEmne";
             Text = "Vælg Emne/Opgave";
+            Load += VælgEmne_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

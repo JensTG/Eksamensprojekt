@@ -10,12 +10,12 @@ namespace Eksamensprojekt
 	{
 		public string? beskrivelse = "";
 		public Image? eksempelbillede = null;
-        public string[] mulige_svar = { "", "", "", ""};
+		public string[] mulige_svar = { "", "", "", ""};
 
 		public string korrekt = "";
 
-        // Fra fil
-        public virtual void IndlæsSpørgsmål(string fil)
+		// Fra fil
+		public virtual void IndlæsSpørgsmål(string fil)
 		{
 			using (StreamReader sr = new StreamReader(fil))
 			{ 
@@ -35,12 +35,12 @@ namespace Eksamensprojekt
 			{
 				sw.WriteLine(beskrivelse);
 
-                if (eksempelbillede != null)
-                {
-                    sw.WriteLine(billedesti);
-                    eksempelbillede.Save(billedesti);
-                }
-                sw.Close();
+				if (eksempelbillede != null)
+				{
+					sw.WriteLine(billedesti);
+					eksempelbillede.Save(billedesti);
+				}
+				sw.Close();
 			};
 		}
 	}
@@ -146,9 +146,9 @@ namespace Eksamensprojekt
 
 		public void GemOpgave(string opgavesti)
 		{
-            string billedesti = "";
+			string billedesti = "";
 
-            if (Directory.Exists(opgavesti) && opgavesti.Length > 7) // For at være sikker
+			if (Directory.Exists(opgavesti) && opgavesti.Length > 7) // For at være sikker
 				Directory.Delete(opgavesti, true);
 
 			for (int i = 0; i < spørgsmål.Count; i++)
@@ -290,6 +290,25 @@ namespace Eksamensprojekt
 				ny_opgave.IndlæsOpgave(opgavesti);
 
 				alle_opgaver.Add(ny_opgave);
+			}
+		}
+
+		public static void GemData()
+		{
+			using StreamWriter sw = new StreamWriter(data_sti + "\\brugere");
+			{
+				foreach (string[] data in brugere)
+				{
+					if (data.Length < 3)
+						continue;
+
+					sw.WriteLine(data[0] + ' ' + data[1] + ' ' + data[2]);
+				}
+			}
+
+			foreach (Opgave opgave in alle_opgaver)
+			{
+
 			}
 		}
 	}

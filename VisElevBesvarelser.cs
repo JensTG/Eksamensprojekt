@@ -58,5 +58,15 @@ namespace Eksamensprojekt
 			for (int i = 0; i < BL.alle_opgaver.Count; i++)
 				listBox2.Items.Add(BL.alle_opgaver[i].titel);
 		}
+
+		private void ret_knap_Click(object sender, EventArgs e)
+		{
+			if (listBox2.SelectedItems.Count != 0)
+			{
+				BL.opgaveindeks = listBox2.Items.IndexOf(listBox2.SelectedItems[0]);
+				BL.spørgsmålsindeks = 0;
+				Program.hoved_form.ChangeChild(new OpgaveEditor());
+			}
+		}
 	}
 }
