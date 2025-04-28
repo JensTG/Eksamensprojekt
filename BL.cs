@@ -72,24 +72,21 @@ namespace Eksamensprojekt
 			beskrivelse += '#' + korrekt;
 			foreach (string mulighed in mulige_svar)
 				beskrivelse += '#' + mulighed;
-			base.GemSpørgsmål(fil + "#MC", billedesti);
+			base.GemSpørgsmål(fil + "-MC", billedesti);
 		}
 	}
 
 	public class ÅbentSvar : Spørgsmål
 	{
 		public ÅbentSvar() { }
-		public ÅbentSvar(string beskr)
-		{
-			beskrivelse = beskr;
-		}
-		public ÅbentSvar(string fil, bool fra_fil)
+
+		public ÅbentSvar(string fil)
 		{
 			IndlæsSpørgsmål(fil);
 		}
 		public override void GemSpørgsmål(string fil, string billede_sti)
 		{
-			base.GemSpørgsmål(fil + "#ÅS", billede_sti);
+			base.GemSpørgsmål(fil + "-ÅS", billede_sti);
 		}
 	}
 
@@ -111,7 +108,7 @@ namespace Eksamensprojekt
 			string[] spørgsmålsstier = Directory.GetFiles(opgavesti);
 			foreach (string spørgsmålssti in spørgsmålsstier)
 			{
-				if (!File.Exists(spørgsmålssti))
+				if (!File.Exists(spørgsmålssti) || spørgsmålssti.Contains("meta"))
 					continue;
 
 				if (spørgsmålssti.Contains("MC"))
@@ -125,9 +122,9 @@ namespace Eksamensprojekt
 			}
 
 			// Indlæs meta-data om opgaven
-			if (File.Exists(opgavesti + "meta.txt"))
+			if (File.Exists(opgavesti + '\\' + "meta"))
 			{
-				using (StreamReader sr = new StreamReader(opgavesti + "meta.txt"))
+				using (StreamReader sr = new StreamReader(opgavesti + '\\' + "meta"))
 				{
 					titel = sr.ReadLine();
 					beskrivelse = sr.ReadLine();
@@ -148,25 +145,24 @@ namespace Eksamensprojekt
 			if (Directory.Exists(opgavesti) && opgavesti.Length > 7) // For at være sikker
 				Directory.Delete(opgavesti, true);
 
+			Directory.CreateDirectory(opgavesti);
+
 			for (int i = 0; i < spørgsmål.Count; i++)
 			{
-				if (spørgsmål[i].GetType() == typeof(MultipleChoice))
+				do
 				{
-					do
-					{
-						billedesti = BL.data_sti + "\\billeder\\spm#" + rnd.NextInt64(1000).ToString("0000");
-					} while (File.Exists(billedesti));
-					spørgsmål[i].GemSpørgsmål(opgavesti + "\\" + i.ToString("000"), billedesti);
-				}
+					billedesti = BL.data_sti + "\\billeder\\spm-" + rnd.NextInt64(1000).ToString("0000");
+				} while (File.Exists(billedesti));
+				spørgsmål[i].GemSpørgsmål(opgavesti + "\\" + i.ToString("000"), billedesti);
 			}
 
             do
             {
-                billedesti = BL.data_sti + "\\billeder\\opg#" + rnd.NextInt64(1000).ToString("0000");
+                billedesti = BL.data_sti + "\\billeder\\opg-" + rnd.NextInt64(1000).ToString("0000");
             } while (File.Exists(billedesti));
 
             // Gem meta-data om opgaven
-            using (StreamWriter sw = new StreamWriter(opgavesti + "meta.txt"))
+            using (StreamWriter sw = new StreamWriter(opgavesti + '\\' + "meta"))
 			{
 				sw.WriteLine(titel);
 				sw.WriteLine(beskrivelse);
@@ -268,6 +264,10 @@ namespace Eksamensprojekt
 			string[] bruger = { brugernavn, adgangskode, "e" };
 			brugere.Add(bruger);
             BL.brugernavn = brugernavn;
+
+			StreamWriter sw = File.AppendText(data_sti + '\\' + "brugere");
+			sw.WriteLine(brugernavn + ' ' + adgangskode + " e");
+
             return true;
 		}
 
@@ -286,13 +286,6 @@ namespace Eksamensprojekt
 					brugere.Add(værdier);
 			}
 
-			if (File.Exists(data_sti + '\\' + brugernavn))
-			{
-				sr = new StreamReader(data_sti + '\\' + brugernavn);
-				besvarelser.Clear();
-				besvarelser.AddRange(sr.ReadToEnd().Split("\r\n"));
-            }
-
             string[] opgavestier = Directory.GetDirectories(data_sti + "\\Opgaver");
 			foreach (string opgavesti in opgavestier)
 			{
@@ -306,29 +299,42 @@ namespace Eksamensprojekt
 			sr.Dispose();
         }
 
+		public static void IndlæsBesvarelser()
+		{
+            if (File.Exists(data_sti + "\\Besvarelser\\" + brugernavn))
+			{ 
+                StreamReader sr = new StreamReader(data_sti + "\\Besvarelser\\" + brugernavn);
+                besvarelser.Clear();
+                besvarelser.AddRange(sr.ReadToEnd().Split("\r\n"));
+            }
+        }
+
 		public static void GemData()
 		{
-			StreamWriter sw = new StreamWriter(data_sti + "\\brugere");
-			foreach (string[] data in brugere)
-			{
-				if (data.Length < 3)
-					continue;
+			if (!Directory.Exists(data_sti + "\\Opgaver"))
+				Directory.Delete(data_sti + "\\Opgaver", true);
+			if (!Directory.Exists(data_sti + "\\Besvarelser"))
+				Directory.Delete(data_sti + "\\Opgaver", true);
 
-				sw.WriteLine(data[0] + ' ' + data[1] + ' ' + data[2]);
-			}
-			
+			Directory.CreateDirectory(data_sti + "\\Opgaver");
+			Directory.CreateDirectory(data_sti + "\\Besvarelser");
 
-			foreach (Opgave opgave in opgaver)
+
+            foreach (Opgave opgave in opgaver)
 			{
-				opgave.GemOpgave(data_sti + "\\Opgaver\\" + opgave.titel.Split(' ')[0]);
+				opgave.GemOpgave(data_sti + "\\Opgaver\\" + opgave.titel);
 			}
 
 			if (besvarelser.Count != 0)
 			{
-				sw = new StreamWriter(data_sti + '\\' + brugernavn);
+                StreamWriter sw = new StreamWriter(data_sti + "\\Besvarelser\\" + brugernavn);
 				foreach (string svar in besvarelser)
 					sw.WriteLine(svar);
+				
+				sw.Close();
+				sw.Dispose();
 			}
+
         }
 	}
 }

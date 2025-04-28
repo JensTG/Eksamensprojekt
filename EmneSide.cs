@@ -30,9 +30,8 @@ namespace Eksamensprojekt
         {
             listBox1.Items.Clear();
 
-            for (int i = 0; i < BL.brugere.Count; i++)
-                if (BL.brugere[i][2] == "e")
-                    listBox1.Items.Add(BL.brugere[i][0]);
+            for (int i = 0; i < BL.opgaver.Count; i++)
+                listBox1.Items.Add(BL.opgaver[i].titel);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

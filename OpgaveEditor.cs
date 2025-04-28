@@ -54,6 +54,8 @@ namespace Eksamensprojekt
             BL.spm_idx = 0;
             nu_mc.mulige_svar = new string[4];
 
+            opgave_navn_box.Text = BL.opgaver[BL.opg_idx].titel;
+
             IndlæsSpørgsmål();
         }
 
@@ -105,8 +107,11 @@ namespace Eksamensprojekt
 
                 if (BL.opgaver[BL.opg_idx].spørgsmål[BL.spm_idx].GetType() == typeof(ÅbentSvar))
                     ås_knap.Checked = true;
-
-                korrekt_tjek[int.Parse(BL.opgaver[BL.opg_idx].spørgsmål[BL.spm_idx].korrekt)].Checked = true;
+                else
+                {
+                    int.TryParse(BL.opgaver[BL.opg_idx].spørgsmål[BL.spm_idx].korrekt, out int n);
+                    korrekt_tjek[n].Checked = true;
+                }
             }
         }
 
@@ -164,6 +169,7 @@ namespace Eksamensprojekt
                 mul_bokse[i].Text = "";
                 korrekt_tjek[i].Checked = false;
             }
+            ås_knap.Checked = false;
             billede = null;
         }
 
