@@ -19,7 +19,7 @@ namespace Eksamensprojekt
 			ApplicationConfiguration.Initialize();
 			hoved_form.IsMdiContainer = true;
 			Application.Run(hoved_form);
-			
+			BL.GemData();
 		}
 	}
 }

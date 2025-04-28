@@ -30,10 +30,6 @@
         {
             OpgaveBillede = new PictureBox();
             OpgaveTekst = new Label();
-            SvarknapA = new Button();
-            SvarknapB = new Button();
-            SvarknapC = new Button();
-            SvarknapD = new Button();
             MenuKnap = new Button();
             NæsteOpgaveKnap = new Button();
             ForrigeOpgaveKnap = new Button();
@@ -58,46 +54,6 @@
             OpgaveTekst.TabIndex = 1;
             OpgaveTekst.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e";
             // 
-            // SvarknapA
-            // 
-            SvarknapA.Location = new Point(352, 183);
-            SvarknapA.Margin = new Padding(3, 2, 3, 2);
-            SvarknapA.Name = "SvarknapA";
-            SvarknapA.Size = new Size(165, 70);
-            SvarknapA.TabIndex = 2;
-            SvarknapA.Text = "A";
-            SvarknapA.UseVisualStyleBackColor = true;
-            // 
-            // SvarknapB
-            // 
-            SvarknapB.Location = new Point(352, 257);
-            SvarknapB.Margin = new Padding(3, 2, 3, 2);
-            SvarknapB.Name = "SvarknapB";
-            SvarknapB.Size = new Size(165, 70);
-            SvarknapB.TabIndex = 3;
-            SvarknapB.Text = "B";
-            SvarknapB.UseVisualStyleBackColor = true;
-            // 
-            // SvarknapC
-            // 
-            SvarknapC.Location = new Point(523, 183);
-            SvarknapC.Margin = new Padding(3, 2, 3, 2);
-            SvarknapC.Name = "SvarknapC";
-            SvarknapC.Size = new Size(165, 70);
-            SvarknapC.TabIndex = 4;
-            SvarknapC.Text = "C";
-            SvarknapC.UseVisualStyleBackColor = true;
-            // 
-            // SvarknapD
-            // 
-            SvarknapD.Location = new Point(523, 257);
-            SvarknapD.Margin = new Padding(3, 2, 3, 2);
-            SvarknapD.Name = "SvarknapD";
-            SvarknapD.Size = new Size(165, 70);
-            SvarknapD.TabIndex = 5;
-            SvarknapD.Text = "D";
-            SvarknapD.UseVisualStyleBackColor = true;
-            // 
             // MenuKnap
             // 
             MenuKnap.Location = new Point(144, 303);
@@ -117,7 +73,8 @@
             NæsteOpgaveKnap.Size = new Size(66, 24);
             NæsteOpgaveKnap.TabIndex = 7;
             NæsteOpgaveKnap.Text = "Næste";
-            NæsteOpgaveKnap.UseVisualStyleBackColor = true;
+            NæsteOpgaveKnap.UseVisualStyleBackColor = false;
+            NæsteOpgaveKnap.Click += NæsteOpgaveKnap_Click;
             // 
             // ForrigeOpgaveKnap
             // 
@@ -128,6 +85,7 @@
             ForrigeOpgaveKnap.TabIndex = 8;
             ForrigeOpgaveKnap.Text = "Forrige";
             ForrigeOpgaveKnap.UseVisualStyleBackColor = true;
+            ForrigeOpgaveKnap.Click += ForrigeOpgaveKnap_Click;
             // 
             // SvarFelt
             // 
@@ -138,19 +96,16 @@
             SvarFelt.Size = new Size(341, 144);
             SvarFelt.TabIndex = 6;
             SvarFelt.Text = "";
+            SvarFelt.TextChanged += SvarFelt_TextChanged;
             // 
             // OpgaveSide
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
-            Controls.Add(SvarknapA);
             Controls.Add(ForrigeOpgaveKnap);
             Controls.Add(NæsteOpgaveKnap);
             Controls.Add(MenuKnap);
-            Controls.Add(SvarknapD);
-            Controls.Add(SvarknapC);
-            Controls.Add(SvarknapB);
             Controls.Add(OpgaveTekst);
             Controls.Add(OpgaveBillede);
             Controls.Add(SvarFelt);
@@ -165,10 +120,6 @@
 
         private PictureBox OpgaveBillede;
 		private Label OpgaveTekst;
-		private Button SvarknapA;
-		private Button SvarknapB;
-		private Button SvarknapC;
-		private Button SvarknapD;
 		private Button MenuKnap;
 		private Button NæsteOpgaveKnap;
 		private Button ForrigeOpgaveKnap;

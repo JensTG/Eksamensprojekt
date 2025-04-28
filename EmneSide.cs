@@ -21,7 +21,7 @@ namespace Eksamensprojekt
         {
             if (listBox1.SelectedItems.Count != 0)
             {
-                BL.opgaveindeks = listBox1.Items.IndexOf(listBox1.SelectedItems[0]);
+                BL.opg_idx = listBox1.Items.IndexOf(listBox1.SelectedItems[0]);
                 Program.hoved_form.ChangeChild(new OpgaveSide());
             }
         }
@@ -39,15 +39,15 @@ namespace Eksamensprojekt
         {
             if (listBox1.SelectedItems.Count != 0)
             {
-                BL.opgaveindeks = listBox1.Items.IndexOf(listBox1.SelectedItems[0]);
+                BL.opg_idx = listBox1.Items.IndexOf(listBox1.SelectedItems[0]);
                 IndlæsOpgaveForhåndsvisning();
             }
         }
 
         private void IndlæsOpgaveForhåndsvisning()
         {
-            pictureBox1.Image = BL.alle_opgaver[BL.opgaveindeks].billede;
-            beskrivelselabel.Text = BL.alle_opgaver[BL.opgaveindeks].beskrivelse;
+            pictureBox1.Image = BL.opgaver[BL.opg_idx].billede;
+            beskrivelselabel.Text = BL.opgaver[BL.opg_idx].beskrivelse;
         }
     }
 }

@@ -25,18 +25,18 @@ namespace Eksamensprojekt
 
 		private void ny_knap_Click(object sender, EventArgs e)
 		{
-			BL.alle_opgaver.Add(new Opgave());
-			BL.opgaveindeks = BL.alle_opgaver.Count - 1;
-			BL.spørgsmålsindeks = 0;
+			BL.opgaver.Add(new Opgave());
+			BL.opg_idx = BL.opgaver.Count - 1;
+			BL.spm_idx = 0;
 			Program.hoved_form.ChangeChild(new OpgaveEditor());
 		}
 
 		private void slet_knap_Click(object sender, EventArgs e)
 		{
 			if (listBox2.SelectedItems.Count > 0)
-				for (int i = 0; i < BL.alle_opgaver.Count; i++)
-					if (BL.alle_opgaver[i].titel == listBox2.SelectedItems[0].ToString())
-						BL.alle_opgaver.RemoveAt(i);
+				for (int i = 0; i < BL.opgaver.Count; i++)
+					if (BL.opgaver[i].titel == listBox2.SelectedItems[0].ToString())
+						BL.opgaver.RemoveAt(i);
 
 			IndlæsLister();
 		}
@@ -55,16 +55,16 @@ namespace Eksamensprojekt
 				if (BL.brugere[i][2] == "e")
 					listBox1.Items.Add(BL.brugere[i][0]);
 
-			for (int i = 0; i < BL.alle_opgaver.Count; i++)
-				listBox2.Items.Add(BL.alle_opgaver[i].titel);
+			for (int i = 0; i < BL.opgaver.Count; i++)
+				listBox2.Items.Add(BL.opgaver[i].titel);
 		}
 
 		private void ret_knap_Click(object sender, EventArgs e)
 		{
 			if (listBox2.SelectedItems.Count != 0)
 			{
-				BL.opgaveindeks = listBox2.Items.IndexOf(listBox2.SelectedItems[0]);
-				BL.spørgsmålsindeks = 0;
+				BL.opg_idx = listBox2.Items.IndexOf(listBox2.SelectedItems[0]);
+				BL.spm_idx = 0;
 				Program.hoved_form.ChangeChild(new OpgaveEditor());
 			}
 		}

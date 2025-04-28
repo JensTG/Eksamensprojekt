@@ -49,8 +49,8 @@ namespace Eksamensprojekt
 
         private void OpgaveSværhed_Load(object sender, EventArgs e)
         {
-            if (BL.opgaveindeks == 0) ForrigeOpgaveKnap.Enabled = false;
-            if (BL.opgaveindeks >= BL.alle_opgaver.Count) NæsteOpgaveKnap.Enabled = false;
+            if (BL.opg_idx == 0) ForrigeOpgaveKnap.Enabled = false;
+            if (BL.opg_idx >= BL.opgaver.Count) NæsteOpgaveKnap.Enabled = false;
         }
     }
 }

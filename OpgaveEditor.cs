@@ -51,7 +51,7 @@ namespace Eksamensprojekt
 
         private void OpgaveEditor_Load(object sender, EventArgs e)
         {
-            BL.spørgsmålsindeks = 0;
+            BL.spm_idx = 0;
             nu_mc.mulige_svar = new string[4];
 
             IndlæsSpørgsmål();
@@ -61,7 +61,7 @@ namespace Eksamensprojekt
         {
             SætNuværendeSpørgsmål();
 
-            BL.spørgsmålsindeks++;
+            BL.spm_idx++;
 
             IndlæsSpørgsmål();
         }
@@ -96,17 +96,17 @@ namespace Eksamensprojekt
 
         private void IndlæsSpørgsmål()
         {
-            if (BL.spørgsmålsindeks < BL.alle_opgaver[BL.opgaveindeks].spørgsmål.Count && BL.alle_opgaver[BL.opgaveindeks].spørgsmål[BL.spørgsmålsindeks] != null)
+            if (BL.spm_idx < BL.opgaver[BL.opg_idx].spørgsmål.Count && BL.opgaver[BL.opg_idx].spørgsmål[BL.spm_idx] != null)
             {
-                beskr_boks.Text = BL.alle_opgaver[BL.opgaveindeks].spørgsmål[BL.spørgsmålsindeks].beskrivelse;
+                beskr_boks.Text = BL.opgaver[BL.opg_idx].spørgsmål[BL.spm_idx].beskrivelse;
 
-                for (int i = 0; i < 4 && i < BL.alle_opgaver[BL.opgaveindeks].spørgsmål[BL.spørgsmålsindeks].mulige_svar.Length; i++)
-                    mul_bokse[i].Text = BL.alle_opgaver[BL.opgaveindeks].spørgsmål[BL.spørgsmålsindeks].mulige_svar[i];
+                for (int i = 0; i < 4 && i < BL.opgaver[BL.opg_idx].spørgsmål[BL.spm_idx].mulige_svar.Length; i++)
+                    mul_bokse[i].Text = BL.opgaver[BL.opg_idx].spørgsmål[BL.spm_idx].mulige_svar[i];
 
-                if (BL.alle_opgaver[BL.opgaveindeks].spørgsmål[BL.spørgsmålsindeks].GetType() == typeof(ÅbentSvar))
+                if (BL.opgaver[BL.opg_idx].spørgsmål[BL.spm_idx].GetType() == typeof(ÅbentSvar))
                     ås_knap.Checked = true;
 
-                korrekt_tjek[int.Parse(BL.alle_opgaver[BL.opgaveindeks].spørgsmål[BL.spørgsmålsindeks].korrekt)].Checked = true;
+                korrekt_tjek[int.Parse(BL.opgaver[BL.opg_idx].spørgsmål[BL.spm_idx].korrekt)].Checked = true;
             }
         }
 
@@ -114,17 +114,17 @@ namespace Eksamensprojekt
         {
             fr_spm_knap.Enabled = false;
 
-            if (BL.spørgsmålsindeks > 0)
+            if (BL.spm_idx > 0)
                 fr_spm_knap.Enabled = true;
         }
 
         private void fr_spm_knap_Click(object sender, EventArgs e)
         {
 
-            if (BL.spørgsmålsindeks > 0)
+            if (BL.spm_idx > 0)
             {
                 SætNuværendeSpørgsmål();
-                BL.spørgsmålsindeks--;
+                BL.spm_idx--;
                 IndlæsSpørgsmål();
             }
 
@@ -138,13 +138,13 @@ namespace Eksamensprojekt
 
         private void SætNuværendeSpørgsmål()
         {
-            if (BL.spørgsmålsindeks == BL.alle_opgaver[BL.opgaveindeks].spørgsmål.Count)
-                BL.alle_opgaver[BL.opgaveindeks].spørgsmål.Add(null); // Tror ikke typen betyder noget her
+            if (BL.spm_idx == BL.opgaver[BL.opg_idx].spørgsmål.Count)
+                BL.opgaver[BL.opg_idx].spørgsmål.Add(null); // Tror ikke typen betyder noget her
 
             if (ås_knap.Checked)
             {
                 nu_ås.eksempelbillede = billede;
-                BL.alle_opgaver[BL.opgaveindeks].spørgsmål[BL.spørgsmålsindeks] = nu_ås;
+                BL.opgaver[BL.opg_idx].spørgsmål[BL.spm_idx] = nu_ås;
             }
             else
             {
@@ -152,7 +152,7 @@ namespace Eksamensprojekt
                 for (int i = 0; i < 4; i++)
                     if (korrekt_tjek[i].Checked)
                         nu_mc.korrekt = i.ToString();
-                BL.alle_opgaver[BL.opgaveindeks].spørgsmål[BL.spørgsmålsindeks] = nu_mc;
+                BL.opgaver[BL.opg_idx].spørgsmål[BL.spm_idx] = nu_mc;
             }
 
             nu_mc = new MultipleChoice();
@@ -169,7 +169,7 @@ namespace Eksamensprojekt
 
         private void opgave_navn_box_TextChanged(object sender, EventArgs e)
         {
-            BL.alle_opgaver[BL.opgaveindeks].titel = opgave_navn_box.Text;
+            BL.opgaver[BL.opg_idx].titel = opgave_navn_box.Text;
         }
     }
 }

@@ -47,8 +47,6 @@ namespace Eksamensprojekt
 
 	public class MultipleChoice : Spørgsmål
 	{
-		public int svar;
-
 		public MultipleChoice() { }
 		public MultipleChoice(string[] mul, int korr)
 		{
@@ -80,8 +78,6 @@ namespace Eksamensprojekt
 
 	public class ÅbentSvar : Spørgsmål
 	{
-		public string svar = "";
-
 		public ÅbentSvar() { }
 		public ÅbentSvar(string beskr)
 		{
@@ -147,25 +143,30 @@ namespace Eksamensprojekt
 		public void GemOpgave(string opgavesti)
 		{
 			string billedesti = "";
+			Random rnd = new Random();
 
 			if (Directory.Exists(opgavesti) && opgavesti.Length > 7) // For at være sikker
 				Directory.Delete(opgavesti, true);
 
 			for (int i = 0; i < spørgsmål.Count; i++)
 			{
-				Random rnd = new Random();
 				if (spørgsmål[i].GetType() == typeof(MultipleChoice))
 				{
 					do
 					{
-						billedesti = BL.data_sti + "\\spm#" + rnd.NextInt64(1000).ToString("0000");
+						billedesti = BL.data_sti + "\\billeder\\spm#" + rnd.NextInt64(1000).ToString("0000");
 					} while (File.Exists(billedesti));
 					spørgsmål[i].GemSpørgsmål(opgavesti + "\\" + i.ToString("000"), billedesti);
 				}
 			}
 
-			// Gem meta-data om opgaven
-			using (StreamWriter sw = new StreamWriter(opgavesti + "meta.txt"))
+            do
+            {
+                billedesti = BL.data_sti + "\\billeder\\opg#" + rnd.NextInt64(1000).ToString("0000");
+            } while (File.Exists(billedesti));
+
+            // Gem meta-data om opgaven
+            using (StreamWriter sw = new StreamWriter(opgavesti + "meta.txt"))
 			{
 				sw.WriteLine(titel);
 				sw.WriteLine(beskrivelse);
@@ -217,16 +218,17 @@ namespace Eksamensprojekt
 	{
 		// Rækkefølge på array: brugernavn, adgangskode, rang
 		public static List<string[]> brugere = new List<string[]>();
+		public static string brugernavn = "";
 
 		// Opgaverne
-		public static List<Opgave> alle_opgaver = new List<Opgave>();
-		public static List<Opgave> besvarelser = new List<Opgave>();
-		public static int opgaveindeks = 0;
+		public static List<Opgave> opgaver = new List<Opgave>();
+		public static int opg_idx = 0;
 		public static int sværhedsgrad = 0; // 0: Let, 1: Mellem, 2: Svær
 
 		// Spørgsmålene
 		public static List<Spørgsmål> spørgsmål = new List<Spørgsmål>();
-		public static int spørgsmålsindeks = 0;
+		public static int spm_idx = 0;
+		public static List<string> besvarelser = new List<string>(); // Opgavens titel # spørgsmål nr
 
 		// Data
 		public static string data_sti = "";
@@ -239,7 +241,9 @@ namespace Eksamensprojekt
 				if (brugere[i][0] != brugernavn || brugere[i][1] != adgangskode)
 					continue;
 
-				switch(brugere[i][2])
+                BL.brugernavn = brugernavn;
+
+                switch (brugere[i][2])
 				{
 					case "l":
 						return 1;
@@ -263,53 +267,68 @@ namespace Eksamensprojekt
 			}
 			string[] bruger = { brugernavn, adgangskode, "e" };
 			brugere.Add(bruger);
-			return true;
+            BL.brugernavn = brugernavn;
+            return true;
 		}
 
 		public static void IndlæsData()
 		{
-			using StreamReader sr = new StreamReader(data_sti + "\\brugere");
+			StreamReader sr = new StreamReader(data_sti + "\\brugere");
+			string[] linjer = sr.ReadToEnd().Split("\r\n");
+
+			foreach (string linje in linjer)
 			{
-				string[] linjer = sr.ReadToEnd().Split("\r\n");
+				if (linje.Length < 5)
+					continue;
 
-				foreach (string linje in linjer)
-				{
-					if (linje.Length < 5)
-						continue;
-
-					string[] værdier = linje.Split(' ');
-					if (værdier.Length == 3)
-						brugere.Add(værdier);
-				}
+				string[] værdier = linje.Split(' ');
+				if (værdier.Length == 3)
+					brugere.Add(værdier);
 			}
 
-			string[] opgavestier = Directory.GetDirectories(data_sti + "\\Opgaver");
+			if (File.Exists(data_sti + '\\' + brugernavn))
+			{
+				sr = new StreamReader(data_sti + '\\' + brugernavn);
+				besvarelser.Clear();
+				besvarelser.AddRange(sr.ReadToEnd().Split("\r\n"));
+            }
+
+            string[] opgavestier = Directory.GetDirectories(data_sti + "\\Opgaver");
 			foreach (string opgavesti in opgavestier)
 			{
 				Opgave ny_opgave = new Opgave();
 				ny_opgave.IndlæsOpgave(opgavesti);
 
-				alle_opgaver.Add(ny_opgave);
+				opgaver.Add(ny_opgave);
 			}
-		}
+
+			sr.Close();
+			sr.Dispose();
+        }
 
 		public static void GemData()
 		{
-			using StreamWriter sw = new StreamWriter(data_sti + "\\brugere");
+			StreamWriter sw = new StreamWriter(data_sti + "\\brugere");
+			foreach (string[] data in brugere)
 			{
-				foreach (string[] data in brugere)
-				{
-					if (data.Length < 3)
-						continue;
+				if (data.Length < 3)
+					continue;
 
-					sw.WriteLine(data[0] + ' ' + data[1] + ' ' + data[2]);
-				}
+				sw.WriteLine(data[0] + ' ' + data[1] + ' ' + data[2]);
+			}
+			
+
+			foreach (Opgave opgave in opgaver)
+			{
+				opgave.GemOpgave(data_sti + "\\Opgaver\\" + opgave.titel.Split(' ')[0]);
 			}
 
-			foreach (Opgave opgave in alle_opgaver)
+			if (besvarelser.Count != 0)
 			{
-
+				sw = new StreamWriter(data_sti + '\\' + brugernavn);
+				foreach (string svar in besvarelser)
+					sw.WriteLine(svar);
 			}
-		}
+        }
 	}
 }
