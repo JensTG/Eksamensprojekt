@@ -37,6 +37,8 @@
             fr_spm_knap = new Button();
             opgave_navn_box = new TextBox();
             label1 = new Label();
+            opgaveBeskrivelse = new Label();
+            opgave_beskrivelse_boks = new TextBox();
             SuspendLayout();
             // 
             // beskr_boks
@@ -124,11 +126,30 @@
             label1.TabIndex = 18;
             label1.Text = "Opgavens navn";
             // 
+            // opgaveBeskrivelse
+            // 
+            opgaveBeskrivelse.AutoSize = true;
+            opgaveBeskrivelse.Location = new Point(146, 45);
+            opgaveBeskrivelse.Name = "opgaveBeskrivelse";
+            opgaveBeskrivelse.Size = new Size(120, 15);
+            opgaveBeskrivelse.TabIndex = 19;
+            opgaveBeskrivelse.Text = "Opgavens beskrivelse";
+            // 
+            // opgave_beskrivelse_boks
+            // 
+            opgave_beskrivelse_boks.Location = new Point(272, 42);
+            opgave_beskrivelse_boks.Name = "opgave_beskrivelse_boks";
+            opgave_beskrivelse_boks.Size = new Size(258, 23);
+            opgave_beskrivelse_boks.TabIndex = 20;
+            opgave_beskrivelse_boks.TextChanged += opgave_beskrivelse_boks_TextChanged;
+            // 
             // OpgaveEditor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(opgave_beskrivelse_boks);
+            Controls.Add(opgaveBeskrivelse);
             Controls.Add(label1);
             Controls.Add(opgave_navn_box);
             Controls.Add(fr_spm_knap);
@@ -156,5 +177,7 @@
 		private Button fr_spm_knap;
         private TextBox opgave_navn_box;
         private Label label1;
+        private Label opgaveBeskrivelse;
+        private TextBox opgave_beskrivelse_boks;
     }
 }

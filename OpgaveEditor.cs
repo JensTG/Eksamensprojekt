@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace Eksamensprojekt
 {
-
     public partial class OpgaveEditor : Form
     {
         MultipleChoice nu_mc = new MultipleChoice();
@@ -55,6 +54,7 @@ namespace Eksamensprojekt
             nu_mc.mulige_svar = new string[4];
 
             opgave_navn_box.Text = BL.opgaver[BL.opg_idx].titel;
+            opgave_beskrivelse_boks.Text = BL.opgaver[BL.opg_idx].beskrivelse;
 
             IndlæsSpørgsmål();
         }
@@ -176,6 +176,11 @@ namespace Eksamensprojekt
         private void opgave_navn_box_TextChanged(object sender, EventArgs e)
         {
             BL.opgaver[BL.opg_idx].titel = opgave_navn_box.Text;
+        }
+
+        private void opgave_beskrivelse_boks_TextChanged(object sender, EventArgs e)
+        {
+            BL.opgaver[BL.opg_idx].beskrivelse = opgave_beskrivelse_boks.Text;
         }
     }
 }
