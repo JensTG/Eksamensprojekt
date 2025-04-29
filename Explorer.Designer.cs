@@ -1,4 +1,4 @@
-﻿namespace ofuasofhuoashhd
+﻿namespace Eksamensprojekt
 {
     partial class Explorer
     {

@@ -43,6 +43,7 @@
             OpgaveBillede.Margin = new Padding(3, 2, 3, 2);
             OpgaveBillede.Name = "OpgaveBillede";
             OpgaveBillede.Size = new Size(676, 163);
+            OpgaveBillede.SizeMode = PictureBoxSizeMode.Zoom;
             OpgaveBillede.TabIndex = 0;
             OpgaveBillede.TabStop = false;
             // 

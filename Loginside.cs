@@ -1,5 +1,3 @@
-using ofuasofhuoashhd;
-
 namespace Eksamensprojekt
 {
 	public partial class Loginside : Form
@@ -40,10 +38,9 @@ namespace Eksamensprojekt
 			bool oprettet = BL.OpretBruger(textBox1.Text, textBox2.Text);
 
 			if (oprettet == true)
-			{
+				MessageBox.Show("Brugeren er nu oprettet");
+			else
 				MessageBox.Show("Brugeren eksisterer allerede");
-			}
-			MessageBox.Show("Brugeren er nu oprettet");
 		}
 
 		private void Loginside_Load(object sender, EventArgs e)

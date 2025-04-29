@@ -14,8 +14,6 @@ namespace Eksamensprojekt
 	public partial class OpgaveSide : Form
 	{
 		Button[] svarknapper = new Button[4];
-
-		int n_fhv_svar = 0;
 		List<string> spm_svar = new List<string>();
 
 		public OpgaveSide()
@@ -26,7 +24,7 @@ namespace Eksamensprojekt
 		private void MenuKnap_Click(object sender, EventArgs e)
 		{
 			// Gem besvarede spørgsmål
-			BL.besvarelser.AddRange(spm_svar[n_fhv_svar..]);
+			BL.besvarelser.AddRange(spm_svar);
 
 			Program.hoved_form.ChangeChild(Program.emneside);
 		}
@@ -51,7 +49,10 @@ namespace Eksamensprojekt
 				 where svar.Split('#')[0] == BL.opgaver[BL.opg_idx].titel
 				 select svar).ToList();
 
-			n_fhv_svar = spm_svar.Count;
+			BL.besvarelser =
+				(from svar in BL.besvarelser
+				 where svar.Split('#')[0] != BL.opgaver[BL.opg_idx].titel
+				 select svar).ToList();
 
 			while (spm_svar.Count < BL.opgaver[BL.opg_idx].spørgsmål.Count)
 				spm_svar.Add(null);
@@ -120,7 +121,7 @@ namespace Eksamensprojekt
 
 		private void SvarFelt_TextChanged(object sender, EventArgs e)
 		{
-			spm_svar[BL.spm_idx] = BL.opgaver[BL.opg_idx].titel + '#' + SvarFelt.Text;
+			spm_svar[BL.spm_idx] = BL.opgaver[BL.opg_idx].titel + '#' + SvarFelt.Text.Replace("\r\n", "");
 		}
 
 		private void NæsteOpgaveKnap_Click(object sender, EventArgs e)

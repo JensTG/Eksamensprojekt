@@ -266,7 +266,8 @@ namespace Eksamensprojekt
             BL.brugernavn = brugernavn;
 
 			StreamWriter sw = File.AppendText(data_sti + '\\' + "brugere");
-			sw.WriteLine(brugernavn + ' ' + adgangskode + " e");
+			sw.Write("\r\n" + brugernavn + ' ' + adgangskode + " e");
+			sw.Close();
 
             return true;
 		}
@@ -311,14 +312,15 @@ namespace Eksamensprojekt
 
 		public static void GemData()
 		{
-			if (!Directory.Exists(data_sti + "\\Opgaver"))
-				Directory.Delete(data_sti + "\\Opgaver", true);
-			if (!Directory.Exists(data_sti + "\\Besvarelser"))
-				Directory.Delete(data_sti + "\\Opgaver", true);
+			if (opgaver.Count == 0 || brugere.Count == 0)
+				return;
 
+			if (Directory.Exists(data_sti + "\\Opgaver"))
+				Directory.Delete(data_sti + "\\Opgaver", true);
 			Directory.CreateDirectory(data_sti + "\\Opgaver");
-			Directory.CreateDirectory(data_sti + "\\Besvarelser");
 
+			if (!Directory.Exists(data_sti + "\\Besvarelser"))
+				Directory.CreateDirectory(data_sti + "\\Besvarelser");
 
             foreach (Opgave opgave in opgaver)
 			{
